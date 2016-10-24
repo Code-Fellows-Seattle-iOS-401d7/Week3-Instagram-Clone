@@ -31,7 +31,61 @@ import UIKit
     - CKReference - realtionship b/w different objects(Player - Team)
     - CKAsset - Assets are resources, like binary files or bulk data(user's picture should be stored as a CKAsset)
  
+ ** UIImagePickerController **
+    -> manages user interactions and delivers results of those interactions to a delegate object
+
+ - AVFoundation Framework is more difficult and complex version of UIImagePickerController
  
+ * workflow *
+    - check if device has a camera
+        -- add UIRequiredDeviceCapabilities key to info.plist orrrrr
+        -- use isSoruceTypeAvailable class method to check if there is a camera
+    - instantiate UIImagePickerController
+    - set desired properties such as sourceType, allowsEditing(Bool), delgeate, videoQuality, mediaTypes
+    - conform to the UIIPCDelegate and UINavControllerDelegate
+    - present UIIPC to the user
+ 
+ * delegate workflow *
+    - imagePickerControllerDidCancel - tells the delegate that the user cancelled the pick operation
+    - imagePickerController:didFinishPickingMediaWithInfo: String
+ 
+ 
+ ** UIAlertController **
+    -> object that displays an alert
+ 
+ - 2 ways to present
+    -- action sheet(alert from bottom)
+    -- alert - superimposed over the middle of the screen
+ - to add "options", create UIAlertAction objects and add those actions to the alert controller
+ - UIAlertActions can have text field inputs
+ - presenting...
+    -- present(viewController:animated:completion:) on the parentVC
+    -- on ipad you have to tell the alertController where to come from
+ 
+ ** Size Classes **
+    -> enable a storyboard or XIB to work with all available screen sizes
+
+ - together with a displayScale and userInterfaceIdiom(iphone/ipad/tv/watch) make up a trait collection
+ - everything on the screen has a trait collection(including the screen itself and vc's)
+ - usually only care about vc's trait collection
+ - storyboard use vc's trait collection to display to user
+ - allow you to have diff constraints and layouts for each configuration on the storyboard
+ - if you change the configuration, certain changes will only apply in the specific size class
+ 
+ * changeable qualities *
+    -- constraint constants
+    -- font and font sizes
+    -- turning constraints on and off
+    -- turning view on or off
+ 
+ ** developing for ipad **
+
+ - 99% of the time the same as developing for iphone
+ - consider designing for ipad before
+ - consider multiple storyboard file/separatr storyboard files for iphone & ipad
+ - identifying the ipad...
+    -- UIUserInterfaceIdiom is the enum to figure out which device is currently being used
+    -- class called UIDevice that gives you a singleton the represents the current device of type userInterfaceIdiom
  
  
  

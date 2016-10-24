@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7CA9F5C01DBE76AF00A67814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9F5BF1DBE76AF00A67814 /* AppDelegate.swift */; };
+		7CA9F5C51DBE76AF00A67814 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA9F5C31DBE76AF00A67814 /* Main.storyboard */; };
+		7CA9F5C71DBE76AF00A67814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA9F5C61DBE76AF00A67814 /* Assets.xcassets */; };
+		7CA9F5CA1DBE76AF00A67814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA9F5C81DBE76AF00A67814 /* LaunchScreen.storyboard */; };
+		7CA9F5D81DBE77DB00A67814 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA9F5D71DBE77DB00A67814 /* CloudKit.framework */; };
+		7CB76FAD1DBE7E7700A1ECEA /* CloudKitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB76FAC1DBE7E7700A1ECEA /* CloudKitAPI.swift */; };
+		7CB76FAF1DBE850B00A1ECEA /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB76FAE1DBE850B00A1ECEA /* HomeVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7CA9F5BC1DBE76AF00A67814 /* InstaKiloGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaKiloGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CA9F5BF1DBE76AF00A67814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7CA9F5C41DBE76AF00A67814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7CA9F5C61DBE76AF00A67814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7CA9F5C91DBE76AF00A67814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7CA9F5CB1DBE76AF00A67814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CA9F5D51DBE77B300A67814 /* InstaKiloGram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstaKiloGram.entitlements; sourceTree = "<group>"; };
+		7CA9F5D71DBE77DB00A67814 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7CB76FAC1DBE7E7700A1ECEA /* CloudKitAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitAPI.swift; sourceTree = "<group>"; };
+		7CB76FAE1DBE850B00A1ECEA /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7CA9F5B91DBE76AF00A67814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CA9F5D81DBE77DB00A67814 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7CA9F5B31DBE76AF00A67814 = {
+			isa = PBXGroup;
+			children = (
+				7CA9F5BE1DBE76AF00A67814 /* InstaKiloGram */,
+				7CA9F5BD1DBE76AF00A67814 /* Products */,
+				7CA9F5D61DBE77DB00A67814 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7CA9F5BD1DBE76AF00A67814 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7CA9F5BC1DBE76AF00A67814 /* InstaKiloGram.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7CA9F5BE1DBE76AF00A67814 /* InstaKiloGram */ = {
+			isa = PBXGroup;
+			children = (
+				7CA9F5D41DBE777400A67814 /* Controlla */,
+				7CA9F5D31DBE772500A67814 /* Model */,
+				7CA9F5D11DBE76E800A67814 /* View */,
+				7CA9F5D21DBE76F600A67814 /* Utilities */,
+			);
+			path = InstaKiloGram;
+			sourceTree = "<group>";
+		};
+		7CA9F5D11DBE76E800A67814 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CA9F5C81DBE76AF00A67814 /* LaunchScreen.storyboard */,
+				7CA9F5C31DBE76AF00A67814 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7CA9F5D21DBE76F600A67814 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7CA9F5BF1DBE76AF00A67814 /* AppDelegate.swift */,
+				7CA9F5C61DBE76AF00A67814 /* Assets.xcassets */,
+				7CA9F5CB1DBE76AF00A67814 /* Info.plist */,
+				7CA9F5D51DBE77B300A67814 /* InstaKiloGram.entitlements */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		7CA9F5D31DBE772500A67814 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CB76FAC1DBE7E7700A1ECEA /* CloudKitAPI.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7CA9F5D41DBE777400A67814 /* Controlla */ = {
+			isa = PBXGroup;
+			children = (
+				7CB76FAE1DBE850B00A1ECEA /* HomeVC.swift */,
+			);
+			name = Controlla;
+			sourceTree = "<group>";
+		};
+		7CA9F5D61DBE77DB00A67814 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CA9F5D71DBE77DB00A67814 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7CA9F5BB1DBE76AF00A67814 /* InstaKiloGram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CA9F5CE1DBE76AF00A67814 /* Build configuration list for PBXNativeTarget "InstaKiloGram" */;
+			buildPhases = (
+				7CA9F5B81DBE76AF00A67814 /* Sources */,
+				7CA9F5B91DBE76AF00A67814 /* Frameworks */,
+				7CA9F5BA1DBE76AF00A67814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InstaKiloGram;
+			productName = InstaKiloGram;
+			productReference = 7CA9F5BC1DBE76AF00A67814 /* InstaKiloGram.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7CA9F5B41DBE76AF00A67814 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jacob Dobson";
+				TargetAttributes = {
+					7CA9F5BB1DBE76AF00A67814 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = HYPCVH7NE6;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 7CA9F5B71DBE76AF00A67814 /* Build configuration list for PBXProject "InstaKiloGram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7CA9F5B31DBE76AF00A67814;
+			productRefGroup = 7CA9F5BD1DBE76AF00A67814 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7CA9F5BB1DBE76AF00A67814 /* InstaKiloGram */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7CA9F5BA1DBE76AF00A67814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CA9F5CA1DBE76AF00A67814 /* LaunchScreen.storyboard in Resources */,
+				7CA9F5C71DBE76AF00A67814 /* Assets.xcassets in Resources */,
+				7CA9F5C51DBE76AF00A67814 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7CA9F5B81DBE76AF00A67814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB76FAF1DBE850B00A1ECEA /* HomeVC.swift in Sources */,
+				7CA9F5C01DBE76AF00A67814 /* AppDelegate.swift in Sources */,
+				7CB76FAD1DBE7E7700A1ECEA /* CloudKitAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7CA9F5C31DBE76AF00A67814 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CA9F5C41DBE76AF00A67814 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7CA9F5C81DBE76AF00A67814 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CA9F5C91DBE76AF00A67814 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7CA9F5CC1DBE76AF00A67814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7CA9F5CD1DBE76AF00A67814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7CA9F5CF1DBE76AF00A67814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstaKiloGram/InstaKiloGram.entitlements;
+				DEVELOPMENT_TEAM = HYPCVH7NE6;
+				INFOPLIST_FILE = InstaKiloGram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JacobDobson.InstaKiloGram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7CA9F5D01DBE76AF00A67814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstaKiloGram/InstaKiloGram.entitlements;
+				DEVELOPMENT_TEAM = HYPCVH7NE6;
+				INFOPLIST_FILE = InstaKiloGram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JacobDobson.InstaKiloGram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7CA9F5B71DBE76AF00A67814 /* Build configuration list for PBXProject "InstaKiloGram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CA9F5CC1DBE76AF00A67814 /* Debug */,
+				7CA9F5CD1DBE76AF00A67814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CA9F5CE1DBE76AF00A67814 /* Build configuration list for PBXNativeTarget "InstaKiloGram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CA9F5CF1DBE76AF00A67814 /* Debug */,
+				7CA9F5D01DBE76AF00A67814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7CA9F5B41DBE76AF00A67814 /* Project object */;
+}
