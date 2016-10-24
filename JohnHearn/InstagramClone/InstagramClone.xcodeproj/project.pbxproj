@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2F54B1D1DBE7E7000F632B7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F54B1C1DBE7E7000F632B7 /* API.swift */; };
 		F2FDFB551DBE76B0007E42A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FDFB541DBE76B0007E42A5 /* AppDelegate.swift */; };
 		F2FDFB5A1DBE76B0007E42A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FDFB581DBE76B0007E42A5 /* Main.storyboard */; };
 		F2FDFB5C1DBE76B0007E42A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FDFB5B1DBE76B0007E42A5 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F2F54B1C1DBE7E7000F632B7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F2FDFB511DBE76B0007E42A5 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FDFB541DBE76B0007E42A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2FDFB591DBE76B0007E42A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,7 +59,6 @@
 		F2FDFB531DBE76B0007E42A5 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
-				F2FDFB6A1DBE77C0007E42A5 /* InstagramClone.entitlements */,
 				F2FDFB661DBE76C4007E42A5 /* Models */,
 				F2FDFB671DBE76CE007E42A5 /* Views */,
 				F2FDFB681DBE76DA007E42A5 /* Controllers */,
@@ -69,6 +70,7 @@
 		F2FDFB661DBE76C4007E42A5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F2F54B1C1DBE7E7000F632B7 /* API.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				F2FDFB5B1DBE76B0007E42A5 /* Assets.xcassets */,
+				F2FDFB6A1DBE77C0007E42A5 /* InstagramClone.entitlements */,
 				F2FDFB601DBE76B0007E42A5 /* Info.plist */,
 			);
 			name = Support;
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F54B1D1DBE7E7000F632B7 /* API.swift in Sources */,
 				F2FDFB551DBE76B0007E42A5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +358,7 @@
 				F2FDFB651DBE76B0007E42A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
