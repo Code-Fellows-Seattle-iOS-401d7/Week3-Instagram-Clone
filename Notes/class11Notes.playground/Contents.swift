@@ -1,5 +1,4 @@
 
-import UIKit
 
 
                         ////// CLASS 11 \\\\\\
@@ -86,9 +85,5 @@ import UIKit
  - identifying the ipad...
     -- UIUserInterfaceIdiom is the enum to figure out which device is currently being used
     -- class called UIDevice that gives you a singleton the represents the current device of type userInterfaceIdiom
- 
- 
- 
- 
  
  */
