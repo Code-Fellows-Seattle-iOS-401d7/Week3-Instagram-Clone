@@ -27,6 +27,36 @@ class HomeViewController: UIViewController {
 
     }
 
+    func presentActionSheet() {
+        let actionSheet = UIAlertController(title: "Source", message: "Please Select Source Type:", preferredStyle: .actionSheet)
+
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            self.presentImagePicker(sourceType: .camera)
+        }
+
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .destructive) { (action) in
+            self.presentImagePicker(sourceType: .photoLibrary)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            cameraAction.isEnabled = false
+        }
+
+        actionSheet.addAction(cameraAction)
+        actionSheet.addAction(photoLibraryAction)
+        actionSheet.addAction(cancelAction)
+
+        self.present(actionSheet, animated: true, completion: nil)
+
+    }
+
+
+    @IBAction func imageTapped(_ sender: AnyObject) {
+        presentActionSheet()
+    }
+
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
