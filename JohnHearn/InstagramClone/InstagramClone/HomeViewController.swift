@@ -61,7 +61,24 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let originaImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            //do stuff (need outlet to imageView, need to put image on ImageView)
+        }
+    }
 
 
 
 }
+
+
+
+
+
+
+
