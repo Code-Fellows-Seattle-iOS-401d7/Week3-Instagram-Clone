@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -26,12 +26,22 @@
                                     <outletCollection property="gestureRecognizers" destination="yxo-aQ-mL5" appends="YES" id="aE1-lb-uUp"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZL-CC-nGr">
+                                <color key="backgroundColor" red="1" green="0.93832336319825582" blue="0.43288624956591659" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="POST"/>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zII-sS-JSD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rYh-hn-thm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="W0W-Fy-Ftg"/>
-                            <constraint firstItem="rYh-hn-thm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="WH2-UI-jzd"/>
-                            <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="auo-c7-yJ9"/>
+                            <constraint firstAttribute="trailing" secondItem="GZL-CC-nGr" secondAttribute="trailing" constant="16" id="OYK-8O-cQ9"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="W0W-Fy-Ftg"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="WH2-UI-jzd"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="auo-c7-yJ9"/>
+                            <constraint firstItem="GZL-CC-nGr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="kP1-cA-sQq"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="GZL-CC-nGr" secondAttribute="bottom" constant="8" id="pZI-4a-SH1"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rqI-Xp-54I"/>
                         </constraints>
                     </view>
@@ -46,6 +56,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="126" y="143"/>
         </scene>
     </scenes>
 </document>
