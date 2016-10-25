@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A322" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A322" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dzd-5t-hYs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +19,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVt-H4-1kx">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="rMC-PX-m4Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleColor" red="0.42781608040000002" green="0.73959959470000003" blue="1" alpha="0.90140086210000003" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postImagePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CpR-BO-QTp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bul-7M-acO">
+                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="QxJ-Mj-Mbj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="FILTER">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ex7-RQ-UiQ"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BGj-yx-XoS">
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
@@ -29,14 +55,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BGj-yx-XoS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="LBP-fH-zeg"/>
-                            <constraint firstItem="BGj-yx-XoS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="iyc-2t-DSL"/>
-                            <constraint firstItem="BGj-yx-XoS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mFS-72-jGd"/>
-                            <constraint firstItem="BGj-yx-XoS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="oQt-O4-HqI"/>
+                            <constraint firstItem="BGj-yx-XoS" firstAttribute="top" secondItem="SVt-H4-1kx" secondAttribute="bottom" constant="8" symbolic="YES" id="CWd-YD-REh"/>
+                            <constraint firstItem="SVt-H4-1kx" firstAttribute="centerX" secondItem="BGj-yx-XoS" secondAttribute="centerX" id="DtS-jV-2o9"/>
+                            <constraint firstAttribute="trailing" secondItem="SVt-H4-1kx" secondAttribute="trailing" id="Ehy-Ha-LMd"/>
+                            <constraint firstItem="SVt-H4-1kx" firstAttribute="trailing" secondItem="Bul-7M-acO" secondAttribute="trailing" id="GAT-Vf-ZP6"/>
+                            <constraint firstItem="SVt-H4-1kx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Zoc-vZ-IWV"/>
+                            <constraint firstItem="Bul-7M-acO" firstAttribute="top" secondItem="BGj-yx-XoS" secondAttribute="bottom" constant="8" symbolic="YES" id="kdk-Yd-OLF"/>
+                            <constraint firstItem="BGj-yx-XoS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="oRk-XD-mgw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bul-7M-acO" secondAttribute="bottom" constant="8" symbolic="YES" id="vQO-zC-7l7"/>
+                            <constraint firstItem="SVt-H4-1kx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xok-1f-7Qp"/>
+                            <constraint firstItem="SVt-H4-1kx" firstAttribute="leading" secondItem="Bul-7M-acO" secondAttribute="leading" id="zNh-6m-aEM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="Ndz-Dw-OFv"/>
                     <connections>
+                        <outlet property="filterButtonTopConstraint" destination="kdk-Yd-OLF" id="JnB-ys-k3A"/>
                         <outlet property="imageView" destination="BGj-yx-XoS" id="oaT-8s-zYJ"/>
+                        <outlet property="postButtonBottomConstraint" destination="CWd-YD-REh" id="XCp-dX-fFK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -46,6 +81,44 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="d5U-vl-zdo">
+            <objects>
+                <viewController id="QXH-g9-wfA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1XH-qb-mKV"/>
+                        <viewControllerLayoutGuide type="bottom" id="mIi-11-AQv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0dm-hV-TOb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="LQj-7X-kqu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fwg-EW-SSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="875"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="XWU-Nc-5AO">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dzd-5t-hYs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="PrM-0x-SSK">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="LQp-IT-fQw"/>
+                        <segue destination="QXH-g9-wfA" kind="relationship" relationship="viewControllers" id="8Ry-Om-fsz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gzk-L0-MNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

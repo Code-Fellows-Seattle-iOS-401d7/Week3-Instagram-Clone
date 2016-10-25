@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C16994D1DBFC5CA00ABAF27 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16994C1DBFC5CA00ABAF27 /* Post.swift */; };
+		7C1699511DBFF5EA00ABAF27 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1699501DBFF5EA00ABAF27 /* Filters.swift */; };
+		7C22EC611DC01D31006D8E1C /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22EC601DC01D31006D8E1C /* Additions.swift */; };
 		7CA9F5C01DBE76AF00A67814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9F5BF1DBE76AF00A67814 /* AppDelegate.swift */; };
 		7CA9F5C51DBE76AF00A67814 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA9F5C31DBE76AF00A67814 /* Main.storyboard */; };
 		7CA9F5C71DBE76AF00A67814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA9F5C61DBE76AF00A67814 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C16994C1DBFC5CA00ABAF27 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		7C1699501DBFF5EA00ABAF27 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		7C22EC601DC01D31006D8E1C /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
 		7CA9F5BC1DBE76AF00A67814 /* InstaKiloGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaKiloGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA9F5BF1DBE76AF00A67814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CA9F5C41DBE76AF00A67814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,7 +98,10 @@
 		7CA9F5D31DBE772500A67814 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C22EC601DC01D31006D8E1C /* Additions.swift */,
 				7CB76FAC1DBE7E7700A1ECEA /* CloudKitAPI.swift */,
+				7C1699501DBFF5EA00ABAF27 /* Filters.swift */,
+				7C16994C1DBFC5CA00ABAF27 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -196,7 +205,10 @@
 			files = (
 				7CB76FAF1DBE850B00A1ECEA /* HomeVC.swift in Sources */,
 				7CA9F5C01DBE76AF00A67814 /* AppDelegate.swift in Sources */,
+				7C1699511DBFF5EA00ABAF27 /* Filters.swift in Sources */,
+				7C22EC611DC01D31006D8E1C /* Additions.swift in Sources */,
 				7CB76FAD1DBE7E7700A1ECEA /* CloudKitAPI.swift in Sources */,
+				7C16994D1DBFC5CA00ABAF27 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
