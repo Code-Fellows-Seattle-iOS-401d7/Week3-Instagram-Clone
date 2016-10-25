@@ -69,9 +69,9 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
             //do stuff (need outlet to imageView, need to put image on ImageView)
-            self.imagePickerView.image = originalImage
+            self.imagePickerView.image = editedImage
             self.imagePickerControllerDidCancel(imagePicker)
             
         }
