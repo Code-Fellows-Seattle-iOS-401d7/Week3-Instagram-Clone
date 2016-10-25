@@ -8,20 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		01E259BC1DBE76BE00341641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E259BB1DBE76BE00341641 /* AppDelegate.swift */; };
-		01E259BE1DBE76BE00341641 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E259BD1DBE76BE00341641 /* ViewController.swift */; };
 		01E259C11DBE76BE00341641 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E259BF1DBE76BE00341641 /* Main.storyboard */; };
 		01E259C31DBE76BE00341641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E259C21DBE76BE00341641 /* Assets.xcassets */; };
 		01E259C61DBE76BE00341641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E259C41DBE76BE00341641 /* LaunchScreen.storyboard */; };
+		01E259D41DBE77C300341641 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E259D31DBE77C300341641 /* CloudKit.framework */; };
+		01E259D61DBE7E7300341641 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E259D51DBE7E7300341641 /* API.swift */; };
+		01E259D81DBE850C00341641 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E259D71DBE850C00341641 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01E259B81DBE76BD00341641 /* IGClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		01E259BB1DBE76BE00341641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01E259BD1DBE76BE00341641 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01E259BB1DBE76BE00341641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = IGClone/AppDelegate.swift; sourceTree = "<group>"; };
 		01E259C01DBE76BE00341641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01E259C21DBE76BE00341641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01E259C51DBE76BE00341641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01E259C71DBE76BE00341641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01E259D11DBE77C000341641 /* IGClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IGClone.entitlements; sourceTree = "<group>"; };
+		01E259D31DBE77C300341641 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		01E259D51DBE7E7300341641 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		01E259D71DBE850C00341641 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01E259D41DBE77C300341641 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +45,11 @@
 			isa = PBXGroup;
 			children = (
 				01E259BA1DBE76BD00341641 /* IGClone */,
+				01E259CF1DBE76F400341641 /* CONTROLLER */,
+				01E259CE1DBE76EB00341641 /* VIEW */,
+				01E259CD1DBE76E200341641 /* MODEL */,
 				01E259B91DBE76BD00341641 /* Products */,
+				01E259D21DBE77C300341641 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +64,54 @@
 		01E259BA1DBE76BD00341641 /* IGClone */ = {
 			isa = PBXGroup;
 			children = (
-				01E259BB1DBE76BE00341641 /* AppDelegate.swift */,
-				01E259BD1DBE76BE00341641 /* ViewController.swift */,
-				01E259BF1DBE76BE00341641 /* Main.storyboard */,
+				01E259D11DBE77C000341641 /* IGClone.entitlements */,
+				01E259D01DBE771F00341641 /* SUPPORTING */,
 				01E259C21DBE76BE00341641 /* Assets.xcassets */,
-				01E259C41DBE76BE00341641 /* LaunchScreen.storyboard */,
 				01E259C71DBE76BE00341641 /* Info.plist */,
 			);
 			path = IGClone;
+			sourceTree = "<group>";
+		};
+		01E259CD1DBE76E200341641 /* MODEL */ = {
+			isa = PBXGroup;
+			children = (
+				01E259D51DBE7E7300341641 /* API.swift */,
+			);
+			name = MODEL;
+			sourceTree = "<group>";
+		};
+		01E259CE1DBE76EB00341641 /* VIEW */ = {
+			isa = PBXGroup;
+			children = (
+				01E259BF1DBE76BE00341641 /* Main.storyboard */,
+				01E259C41DBE76BE00341641 /* LaunchScreen.storyboard */,
+			);
+			name = VIEW;
+			sourceTree = "<group>";
+		};
+		01E259CF1DBE76F400341641 /* CONTROLLER */ = {
+			isa = PBXGroup;
+			children = (
+				01E259D71DBE850C00341641 /* HomeViewController.swift */,
+				01E259BB1DBE76BE00341641 /* AppDelegate.swift */,
+			);
+			name = CONTROLLER;
+			sourceTree = "<group>";
+		};
+		01E259D01DBE771F00341641 /* SUPPORTING */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SUPPORTING;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		01E259D21DBE77C300341641 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01E259D31DBE77C300341641 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +148,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = U5DE7QAC5B;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -137,8 +195,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E259BE1DBE76BE00341641 /* ViewController.swift in Sources */,
+				01E259D61DBE7E7300341641 /* API.swift in Sources */,
 				01E259BC1DBE76BE00341641 /* AppDelegate.swift in Sources */,
+				01E259D81DBE850C00341641 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +210,7 @@
 				01E259C01DBE76BE00341641 /* Base */,
 			);
 			name = Main.storyboard;
+			path = IGClone;
 			sourceTree = "<group>";
 		};
 		01E259C41DBE76BE00341641 /* LaunchScreen.storyboard */ = {
@@ -159,6 +219,7 @@
 				01E259C51DBE76BE00341641 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = IGClone;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = IGClone/IGClone.entitlements;
 				DEVELOPMENT_TEAM = U5DE7QAC5B;
 				INFOPLIST_FILE = IGClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -274,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = IGClone/IGClone.entitlements;
 				DEVELOPMENT_TEAM = U5DE7QAC5B;
 				INFOPLIST_FILE = IGClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
