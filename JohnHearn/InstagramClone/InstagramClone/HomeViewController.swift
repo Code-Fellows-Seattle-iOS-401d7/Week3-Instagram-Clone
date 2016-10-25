@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
 
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
-        self.imagePicker.allowsEditing = false
+        self.imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
 
     }
