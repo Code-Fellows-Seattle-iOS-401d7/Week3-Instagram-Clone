@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
 
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
-        self.imagePicker.allowsEditing = true
+        self.imagePicker.allowsEditing = false
         self.present(imagePicker, animated: true, completion: nil)
 
     }
@@ -69,16 +69,24 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            //do stuff (need outlet to imageView, need to put image on ImageView)
-            self.imagePickerView.image = originalImage
-            self.imagePickerControllerDidCancel(imagePicker)
-            
+
+
+        // Nested if statements so if someone changes self.imagePicker.allowsEditing
+        // it won't break
+        if self.imagePicker.allowsEditing {
+            if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
+                self.imagePickerView.image = editedImage
+            }
+        } else {
+            if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+                self.imagePickerView.image = originalImage
+
+            }
         }
+
+        self.imagePickerControllerDidCancel(imagePicker)
+            
     }
-
-
-
 }
 
 
