@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var imagePickerView: UIImageView!
 
     var imagePicker = UIImagePickerController()
 
@@ -23,6 +24,7 @@ class HomeViewController: UIViewController {
 
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
+        self.imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
 
     }
@@ -34,7 +36,7 @@ class HomeViewController: UIViewController {
             self.presentImagePicker(sourceType: .camera)
         }
 
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .destructive) { (action) in
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
             self.presentImagePicker(sourceType: .photoLibrary)
         }
 
@@ -67,8 +69,11 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let originaImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             //do stuff (need outlet to imageView, need to put image on ImageView)
+            self.imagePickerView.image = originalImage
+            self.imagePickerControllerDidCancel(imagePicker)
+            
         }
     }
 
