@@ -6,11 +6,12 @@
 //  Copyright © 2016 Corey Malek. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit                             // our CloudKit database is a SQL database under the hood
 
 
-typealias postCompletion = (Bool) -> ()
+typealias PostCompletion = (Bool) -> ()
+typealias GetPostsCompletion = ([Post]?) -> ()
 
 class API {
     
@@ -27,7 +28,7 @@ class API {
     
     
     
-    func save(post: Post, completion: @escaping postCompletion) {
+    func save(post: Post, completion: @escaping PostCompletion) {
         
         do {
             
@@ -47,6 +48,45 @@ class API {
             completion(false)
         }
     
+    }
+    
+    
+    func getPosts(completion: @escaping GetPostsCompletion) {
+        
+        let query = CKQuery(recordType: "Post", predicate: NSPredicate(value: true))
+        
+        self.database.perform(query, inZoneWith: nil) { (records, error) in
+            if error == nil {
+                if let records = records {
+                    var posts = [Post]()
+                    
+                    for record in records {
+                        guard let asset = record["image"] as? CKAsset else { return }
+                        
+                        let path = asset.fileURL.path
+                        
+                        guard let image = UIImage(contentsOfFile: path) else { return }
+                        
+                        
+                        let newPost = Post(image: image)
+                        posts.append(newPost)
+                        
+                    }
+                    
+                    OperationQueue.main.addOperation {
+                        completion(posts)
+                    }
+                    
+                    
+                }
+                
+            } else {
+                print(error)
+                OperationQueue.main.addOperation {
+                    completion(nil)
+                }
+            }
+        }
     }
     
 }

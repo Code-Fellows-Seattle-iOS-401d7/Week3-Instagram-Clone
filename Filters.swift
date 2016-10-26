@@ -11,9 +11,12 @@ import UIKit
 typealias FilterCompletion = (UIImage?) -> ()
 
 
-class Filters {
-    
+    class Filters {
+        
     static var originalImage = UIImage()
+        
+        static let sharedFilters = Filters()
+        
     
     private class func filter(name: String, image: UIImage, completion: @escaping FilterCompletion) {
         
@@ -56,10 +59,7 @@ class Filters {
         
     }
     
-    // HOMEWORK: Add two more filters, check Core Image Filter Reference docs for naming conventions,
-    // make sure action sheet presents these in HomeViewController
-    
-    
+
     class func noir(image: UIImage, completion: @escaping FilterCompletion) {
         self.filter(name: "CIPhotoEffectNoir", image: image, completion: completion)
         
@@ -69,66 +69,7 @@ class Filters {
         self.filter(name: "CIColorInvert", image: image, completion: completion)
         
     }
-    
+//        private init() {}
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
