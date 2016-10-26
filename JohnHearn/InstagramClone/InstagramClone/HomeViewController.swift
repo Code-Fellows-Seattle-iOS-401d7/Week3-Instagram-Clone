@@ -79,6 +79,11 @@ class HomeViewController: UIViewController {
         presentActionSheet()
     }
 
+    private func saveToPhotoLibrary(_ image: UIImage) {
+        let selector = #selector(HomeViewController.image(_: didFinishSaving: context: ))
+        UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+    }
+
     @IBAction func postButtonPressed(_ sender: AnyObject) {
         if let image = imagePickerView.image{
             let newPost = Post(image: image)
@@ -86,10 +91,7 @@ class HomeViewController: UIViewController {
             API.shared.save(post: newPost, completion: {(success) in
                 if success{
                     print("New Post was saved to CloudKit.")
-
-                    let selector = #selector(HomeViewController.image(_: didFinishSaving: context: ))
-
-                    UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+                    self.saveToPhotoLibrary(image)
                 }
             })
         }
@@ -149,6 +151,11 @@ class HomeViewController: UIViewController {
         }
     }
 
+    @IBAction func saveToLibraryButtonPressed(_ sender: AnyObject) {
+        if let image = imagePickerView.image{
+            self.saveToPhotoLibrary(image)
+        }
+    }
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,8 +21,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-hn-thm">
-                                <color key="backgroundColor" red="0.67557505945708862" green="0.88941041370137364" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.53022668419999996" green="0.92370523319999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rYh-hn-thm" secondAttribute="height" multiplier="1:1" id="SRH-11-zVb"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="yxo-aQ-mL5" appends="YES" id="aE1-lb-uUp"/>
                                 </connections>
@@ -54,13 +58,24 @@
                                     <action selector="undoFilterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iI1-qs-iex"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-1T-5aC">
+                                <color key="backgroundColor" red="0.21645965249999999" green="0.52981911189999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Save to Library">
+                                    <color key="titleColor" red="1" green="0.93832336319999998" blue="0.43288624959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveToLibraryButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="00F-dZ-As0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1o2-Tz-7oM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="09h-N7-PMX"/>
+                            <constraint firstItem="2Mc-1T-5aC" firstAttribute="top" secondItem="W9H-dG-XMb" secondAttribute="bottom" constant="16" id="ADE-6X-41Q"/>
                             <constraint firstAttribute="trailing" secondItem="GZL-CC-nGr" secondAttribute="trailing" constant="16" id="OYK-8O-cQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="2Mc-1T-5aC" secondAttribute="trailing" constant="16" id="RvE-cM-BK8"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="W0W-Fy-Ftg"/>
-                            <constraint firstItem="rYh-hn-thm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="WH2-UI-jzd"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="auo-c7-yJ9"/>
                             <constraint firstAttribute="trailing" secondItem="1o2-Tz-7oM" secondAttribute="trailing" constant="16" id="gi4-bf-WqU"/>
                             <constraint firstItem="GZL-CC-nGr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="kP1-cA-sQq"/>
@@ -70,6 +85,7 @@
                             <constraint firstItem="rYh-hn-thm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rqI-Xp-54I"/>
                             <constraint firstItem="1o2-Tz-7oM" firstAttribute="top" secondItem="rYh-hn-thm" secondAttribute="bottom" constant="8" id="ss2-1d-IXP"/>
                             <constraint firstItem="W9H-dG-XMb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="wZz-iG-xcN"/>
+                            <constraint firstItem="2Mc-1T-5aC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="z1I-DS-kqT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="featured" id="fpX-xi-Kaz"/>
