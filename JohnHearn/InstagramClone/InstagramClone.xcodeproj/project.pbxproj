@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F25C7DB31DC1295800CDB720 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25C7DB21DC1295700CDB720 /* GalleryViewController.swift */; };
 		F25C7DB51DC12CE500CDB720 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25C7DB41DC12CE500CDB720 /* GalleryCell.swift */; };
+		F2695F7B1DC1540D003789FE /* GalleryCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2695F7A1DC1540D003789FE /* GalleryCollectionViewLayout.swift */; };
 		F27D15671DBFC5D000FE147A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27D15661DBFC5D000FE147A /* Post.swift */; };
 		F27D15691DBFC64F00FE147A /* Additons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27D15681DBFC64F00FE147A /* Additons.swift */; };
 		F27D156B1DBFF5E700FE147A /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27D156A1DBFF5E700FE147A /* Filters.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		F25C7DB21DC1295700CDB720 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F25C7DB41DC12CE500CDB720 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		F2695F7A1DC1540D003789FE /* GalleryCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewLayout.swift; sourceTree = "<group>"; };
 		F27D15661DBFC5D000FE147A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F27D15681DBFC64F00FE147A /* Additons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additons.swift; sourceTree = "<group>"; };
 		F27D156A1DBFF5E700FE147A /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		F2FDFB671DBE76CE007E42A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F2695F7A1DC1540D003789FE /* GalleryCollectionViewLayout.swift */,
 				F25C7DB41DC12CE500CDB720 /* GalleryCell.swift */,
 				F2FDFB581DBE76B0007E42A5 /* Main.storyboard */,
 				F2FDFB5D1DBE76B0007E42A5 /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 				F2F54B1D1DBE7E7000F632B7 /* API.swift in Sources */,
 				F25C7DB31DC1295800CDB720 /* GalleryViewController.swift in Sources */,
 				F27D15691DBFC64F00FE147A /* Additons.swift in Sources */,
+				F2695F7B1DC1540D003789FE /* GalleryCollectionViewLayout.swift in Sources */,
 				F2FDFB551DBE76B0007E42A5 /* AppDelegate.swift in Sources */,
 				F25C7DB51DC12CE500CDB720 /* GalleryCell.swift in Sources */,
 				F27D156B1DBFF5E700FE147A /* Filters.swift in Sources */,

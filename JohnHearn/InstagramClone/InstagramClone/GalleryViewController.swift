@@ -23,6 +23,10 @@ class GalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+        collectionView.collectionViewLayout = GalleryCollectionViewLayout(columns: 1)
+
+        //let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100)
+
     }
 
     override func viewDidAppear(_ animated: Bool) {

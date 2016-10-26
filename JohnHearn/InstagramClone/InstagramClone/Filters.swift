@@ -12,12 +12,15 @@ typealias FilterCompletion = (UIImage?)->()
 
 class Filters{
 
+    // We're a singleton
+    static let shared = Filters()
+    private init(){}
+
+
     //static var originalImage = UIImage()
     static var imageHistory = [UIImage]()
-
     private static let context = CIContext(eaglContext: EAGLContext(api: .openGLES2)!,
                                            options: [kCIContextWorkingColorSpace: NSNull()])
-
     private class func filter(name: String,
                               image: UIImage,
                               completion: @escaping FilterCompletion ) {
@@ -56,6 +59,5 @@ class Filters{
     class func cool(_ image: UIImage, _ completion: @escaping FilterCompletion ){
         self.filter(name: "CIPhotoEffectProcess", image: image, completion: completion)
     }
-
 
 }
