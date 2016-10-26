@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="743" y="3"/>
         </scene>
-        <!--View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="6qJ-U6-myG">
             <objects>
-                <viewController id="j0e-E4-bd9" sceneMemberID="viewController">
+                <viewController id="j0e-E4-bd9" customClass="GalleryViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="acT-j3-iwu"/>
                         <viewControllerLayoutGuide type="bottom" id="ufs-oE-I6d"/>
@@ -115,13 +115,55 @@
                     <view key="view" contentMode="scaleToFill" id="9fD-u3-hlG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wSd-d5-lae">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fYi-1p-Jk9">
+                                    <size key="itemSize" width="90" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="v6i-Pw-3fI" customClass="GalleryCell" customModule="InstagramClone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-nD-mxY"/>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hgb-nD-mxY" secondAttribute="trailing" id="ADw-D9-tIU"/>
+                                            <constraint firstAttribute="bottom" secondItem="hgb-nD-mxY" secondAttribute="bottom" id="N39-ZQ-dYh"/>
+                                            <constraint firstItem="hgb-nD-mxY" firstAttribute="top" secondItem="v6i-Pw-3fI" secondAttribute="top" id="h5e-Ut-VtR"/>
+                                            <constraint firstItem="hgb-nD-mxY" firstAttribute="leading" secondItem="v6i-Pw-3fI" secondAttribute="leading" id="rYV-op-UMv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="hgb-nD-mxY" id="MUQ-XS-oPr"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ufs-oE-I6d" firstAttribute="top" secondItem="wSd-d5-lae" secondAttribute="bottom" id="1Eo-8O-Fny"/>
+                            <constraint firstItem="wSd-d5-lae" firstAttribute="leading" secondItem="9fD-u3-hlG" secondAttribute="leading" id="3we-i7-iL9"/>
+                            <constraint firstAttribute="trailing" secondItem="wSd-d5-lae" secondAttribute="trailing" id="CxD-RY-rmo"/>
+                            <constraint firstItem="wSd-d5-lae" firstAttribute="top" secondItem="acT-j3-iwu" secondAttribute="bottom" id="fof-uv-8FX"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" systemItem="recents" id="a6J-Mx-7dX"/>
+                    <connections>
+                        <outlet property="collectionView" destination="wSd-d5-lae" id="gUb-VL-dn0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5G-rs-bSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753" y="668"/>
+            <point key="canvasLocation" x="752.79999999999995" y="667.91604197901052"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RYk-EU-LEF">
@@ -129,6 +171,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bhw-HE-gRM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="f6s-qJ-yfh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

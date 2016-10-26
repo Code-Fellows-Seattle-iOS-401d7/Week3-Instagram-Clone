@@ -6,10 +6,11 @@
 //  Copyright © 2016 Bastardized Productions. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
-typealias postCompletion = (Bool)->()
+typealias PostCompletion = (Bool)->()
+typealias GetPostsCompletion = ([Post]?)->()
 
 class API {
     static let shared = API()
@@ -21,7 +22,7 @@ class API {
         self.database = self.container.privateCloudDatabase
     }
 
-    func save(post: Post, completion: @escaping postCompletion){
+    func save(post: Post, completion: @escaping PostCompletion){
         do{
             if let record = try Post.recordFor(post){
                 self.database.save(record, completionHandler: { (record, error) in
@@ -38,4 +39,38 @@ class API {
 
     }
 
+    func getPosts(completion: @escaping GetPostsCompletion) {
+        let query = CKQuery(recordType: "Post",
+                            predicate: NSPredicate(value: true) )
+
+        self.database.perform(query, inZoneWith: nil) { (records, error) in
+            if error == nil {
+                if let records = records{         // Cast optional to non-optional if not nil
+                    var posts = [Post]()
+
+                    for record in records{
+
+                        guard let asset = record["image"] as? CKAsset
+                            else { return }
+                        let path = asset.fileURL.path
+
+                        guard let image = UIImage(contentsOfFile: path)
+                            else { return }
+
+                        posts.append(Post(image: image))
+                    }
+                    OperationQueue.main.addOperation {
+                        completion(posts)
+                    }
+                }
+            } else {
+                print(error)
+            }
+        }
+    }
 }
+
+
+
+
+
