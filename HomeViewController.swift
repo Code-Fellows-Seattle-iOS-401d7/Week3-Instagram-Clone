@@ -122,7 +122,17 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         })
     }
     
+        let resetAction = UIAlertAction(title: "Reset", style: .destructive) {(action) -> Void in
+            self.imageView.image = Filters.originalImage
+        }
+        
+        
         actionSheet.addAction(bwAction)
+        actionSheet.addAction(vintageAction)
+        actionSheet.addAction(chromeAction)
+        actionSheet.addAction(noirAction)
+        actionSheet.addAction(colorInvertAction)
+        actionSheet.addAction(resetAction)
         self.present(actionSheet, animated: true, completion: nil)
     
 }
