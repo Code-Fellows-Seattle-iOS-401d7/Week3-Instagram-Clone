@@ -13,6 +13,7 @@ class HomeVC: UIViewController {
     // create instance of UIIPC
     var imagePicker = UIImagePickerController()
 
+    @IBOutlet var superView: UIImageView!
     @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageView: UIImageView!
@@ -56,12 +57,19 @@ class HomeVC: UIViewController {
             })
         }
         
+        let blurAction = UIAlertAction(title: "Blur", style: .default) { (action) in
+            Filters.blur(image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
         actionSheet.addAction(bwAction)
         actionSheet.addAction(vintageAction)
         actionSheet.addAction(chromeAction)
         actionSheet.addAction(fadeAction)
         actionSheet.addAction(instantAction)
         actionSheet.addAction(resetAction)
+        actionSheet.addAction(blurAction)
         
         self.present(actionSheet, animated: true, completion: nil)
     }
@@ -79,11 +87,17 @@ class HomeVC: UIViewController {
         
         postButtonBottomConstraint.constant = 8
         filterButtonTopConstraint.constant = 8
-        self.view.layoutIfNeeded()
         
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
         }
+        
+//        var blurredBackgroundImage = superView.image
+//            blurredBackgroundImage = Filters.originalImage
+//        blurredBackgroundImage = Filters.blackAndWhite(image: Filters.originalImage, completion: { (blurredBackgroundImage) in
+//            superView.image = blurredBackgroundImage
+//        })
+        
     }
     
     func presentImagePicker(sourceType: UIImagePickerControllerSourceType) {

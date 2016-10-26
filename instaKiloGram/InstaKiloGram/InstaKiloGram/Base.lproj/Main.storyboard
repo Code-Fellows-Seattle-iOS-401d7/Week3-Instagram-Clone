@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UIImageView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -72,6 +72,7 @@
                         <outlet property="filterButtonTopConstraint" destination="kdk-Yd-OLF" id="JnB-ys-k3A"/>
                         <outlet property="imageView" destination="BGj-yx-XoS" id="oaT-8s-zYJ"/>
                         <outlet property="postButtonBottomConstraint" destination="CWd-YD-REh" id="XCp-dX-fFK"/>
+                        <outlet property="superView" destination="8bC-Xf-vdC" id="nhX-0J-iQe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -108,6 +109,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dzd-5t-hYs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="PrM-0x-SSK">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

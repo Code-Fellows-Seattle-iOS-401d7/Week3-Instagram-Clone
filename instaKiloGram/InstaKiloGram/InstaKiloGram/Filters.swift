@@ -56,4 +56,8 @@ class Filters {
     class func instant(image: UIImage, completion: @escaping FilterCompletion) {
         self.filter(name: "CIPhotoEffectInstant", image: image, completion: completion)
     }
+    
+    class func blur(image: UIImage, completion: @escaping FilterCompletion) {
+        self.filter(name: "CIGaussianBlur", image: image, completion: completion)
+    }
 }
