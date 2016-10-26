@@ -102,10 +102,9 @@ class HomeViewController: UIViewController {
         guard let image = self.imagePickerView.image else { return }  // do nothing if we don't have an image yet
 
         typealias FilterFunction = ( _:UIImage, _: @escaping (UIImage?)->() )->()
-
-        func filterActionMaker(_ title: String,
-                               _ filter: @escaping FilterFunction,
-                               _ sheet: UIAlertController) {
+        func addFilterAction(_ title: String,
+                             _ filter: @escaping FilterFunction,
+                             _ sheet: UIAlertController) {
                 let filterAction = UIAlertAction(title: title, style: .default) { (action) in
                 filter(image, { (filteredImage) in
                     self.imagePickerView.image = filteredImage
@@ -116,11 +115,11 @@ class HomeViewController: UIViewController {
 
         let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
 
-        filterActionMaker( "Vintage", Filters.vintage, actionSheet )
-        filterActionMaker( "Black & White", Filters.blackAndWhite, actionSheet )
-        filterActionMaker( "Chrome", Filters.chrome, actionSheet)
-        filterActionMaker( "Polaroid", Filters.polaroid, actionSheet )
-        filterActionMaker( "Cool", Filters.cool, actionSheet )
+        addFilterAction( "Vintage", Filters.vintage, actionSheet )
+        addFilterAction( "Black & White", Filters.blackAndWhite, actionSheet )
+        addFilterAction( "Chrome", Filters.chrome, actionSheet)
+        addFilterAction( "Polaroid", Filters.polaroid, actionSheet )
+        addFilterAction( "Cool", Filters.cool, actionSheet )
 
         let cancelAction   = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         actionSheet.addAction(cancelAction)
