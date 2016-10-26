@@ -9,19 +9,38 @@ import UIKit
  */
 
 
-let arr: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+// for INTS:
+
+let arr: [Int] = [34, 345, 334, 4, 34, 55, 22, 66]
 
 
 func oddNumbers(arr: [Int]) -> [Int] {
     var oddArray: [Int] = []
     
-    for n in arr {
-        if n % 2 == 0 {
-            continue
-        } else if n % 2 != 0 {
-            oddArray.append(n)
-        }
+    for n in stride(from: arr.startIndex + 1, to: arr.count, by: 2) {
+        oddArray.append(arr[n])
     }
     return oddArray
 }
 oddNumbers(arr: arr)
+
+
+// for STRINGS:
+
+let stringArray = ["HELLO", "HEY", "BUS", "HACKER", "JAKE", "DOBSON", "CODE", "FELLOWS"]
+
+func oddElements(arrayOfStrings: [String]) -> [String] {
+    var oddsArray = [String]()
+
+    for element in stride(from: arrayOfStrings.startIndex + 1, to: arrayOfStrings.count, by: 2) {
+        //print(stringArray[element])
+        oddsArray.append(arrayOfStrings[element])
+    }
+    return oddsArray
+}
+oddElements(arrayOfStrings: stringArray)
+
+
+
+
+
