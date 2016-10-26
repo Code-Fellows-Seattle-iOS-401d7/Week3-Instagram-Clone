@@ -103,22 +103,24 @@ class HomeViewController: UIViewController {
 
         typealias FilterFunction = ( _:UIImage, _: @escaping (UIImage?)->() )->()
 
-        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
-
-        func filterActionMaker(_ title: String, _ filter: @escaping FilterFunction ) {
+        func filterActionMaker(_ title: String,
+                               _ filter: @escaping FilterFunction,
+                               _ sheet: UIAlertController) {
                 let filterAction = UIAlertAction(title: title, style: .default) { (action) in
                 filter(image, { (filteredImage) in
                     self.imagePickerView.image = filteredImage
                 })
             }
-            actionSheet.addAction(filterAction)
+            sheet.addAction(filterAction)
         }
 
-        filterActionMaker( "Vintage", Filters.vintage )
-        filterActionMaker( "Black & White", Filters.blackAndWhite )
-        filterActionMaker( "Chrome", Filters.chrome )
-        filterActionMaker( "Polaroid", Filters.polaroid )
-        filterActionMaker( "Cool", Filters.cool )
+        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+
+        filterActionMaker( "Vintage", Filters.vintage, actionSheet )
+        filterActionMaker( "Black & White", Filters.blackAndWhite, actionSheet )
+        filterActionMaker( "Chrome", Filters.chrome, actionSheet)
+        filterActionMaker( "Polaroid", Filters.polaroid, actionSheet )
+        filterActionMaker( "Cool", Filters.cool, actionSheet )
 
         let cancelAction   = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         actionSheet.addAction(cancelAction)
