@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C11F09A1DC1296E0049AF5B /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11F0991DC1296E0049AF5B /* GalleryVC.swift */; };
+		7C11F09C1DC12CEA0049AF5B /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11F09B1DC12CEA0049AF5B /* GalleryCell.swift */; };
+		7C11F09F1DC154260049AF5B /* GalleryCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11F09E1DC154250049AF5B /* GalleryCollectionViewFlowLayout.swift */; };
 		7C16994D1DBFC5CA00ABAF27 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16994C1DBFC5CA00ABAF27 /* Post.swift */; };
 		7C1699511DBFF5EA00ABAF27 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1699501DBFF5EA00ABAF27 /* Filters.swift */; };
 		7C22EC611DC01D31006D8E1C /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22EC601DC01D31006D8E1C /* Additions.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C11F0991DC1296E0049AF5B /* GalleryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
+		7C11F09B1DC12CEA0049AF5B /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		7C11F09E1DC154250049AF5B /* GalleryCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		7C16994C1DBFC5CA00ABAF27 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7C1699501DBFF5EA00ABAF27 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		7C22EC601DC01D31006D8E1C /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
@@ -47,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C11F09D1DC12CFB0049AF5B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7C11F09B1DC12CEA0049AF5B /* GalleryCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		7C11F0A01DC154340049AF5B /* CollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				7C11F09E1DC154250049AF5B /* GalleryCollectionViewFlowLayout.swift */,
+			);
+			name = CollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
 		7CA9F5B31DBE76AF00A67814 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +100,8 @@
 		7CA9F5D11DBE76E800A67814 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7C11F09D1DC12CFB0049AF5B /* Cell */,
+				7C11F0A01DC154340049AF5B /* CollectionViewFlowLayout */,
 				7CA9F5C81DBE76AF00A67814 /* LaunchScreen.storyboard */,
 				7CA9F5C31DBE76AF00A67814 /* Main.storyboard */,
 			);
@@ -109,6 +133,7 @@
 		7CA9F5D41DBE777400A67814 /* Controlla */ = {
 			isa = PBXGroup;
 			children = (
+				7C11F0991DC1296E0049AF5B /* GalleryVC.swift */,
 				7CB76FAE1DBE850B00A1ECEA /* HomeVC.swift */,
 			);
 			name = Controlla;
@@ -205,9 +230,12 @@
 			files = (
 				7CB76FAF1DBE850B00A1ECEA /* HomeVC.swift in Sources */,
 				7CA9F5C01DBE76AF00A67814 /* AppDelegate.swift in Sources */,
+				7C11F09F1DC154260049AF5B /* GalleryCollectionViewFlowLayout.swift in Sources */,
 				7C1699511DBFF5EA00ABAF27 /* Filters.swift in Sources */,
 				7C22EC611DC01D31006D8E1C /* Additions.swift in Sources */,
+				7C11F09C1DC12CEA0049AF5B /* GalleryCell.swift in Sources */,
 				7CB76FAD1DBE7E7700A1ECEA /* CloudKitAPI.swift in Sources */,
+				7C11F09A1DC1296E0049AF5B /* GalleryVC.swift in Sources */,
 				7C16994D1DBFC5CA00ABAF27 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +362,7 @@
 				CODE_SIGN_ENTITLEMENTS = InstaKiloGram/InstaKiloGram.entitlements;
 				DEVELOPMENT_TEAM = HYPCVH7NE6;
 				INFOPLIST_FILE = InstaKiloGram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JacobDobson.InstaKiloGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -348,6 +377,7 @@
 				CODE_SIGN_ENTITLEMENTS = InstaKiloGram/InstaKiloGram.entitlements;
 				DEVELOPMENT_TEAM = HYPCVH7NE6;
 				INFOPLIST_FILE = InstaKiloGram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JacobDobson.InstaKiloGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";

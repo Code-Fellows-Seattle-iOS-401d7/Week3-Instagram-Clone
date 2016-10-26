@@ -24,7 +24,7 @@ class HomeVC: UIViewController {
         let actionSheet = UIAlertController(title: "Filters", message: "Choose as filter", preferredStyle: .actionSheet)
         
         let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
-            self.imageView.image = Filters.originalImage
+            self.imageView.image = Filters.shared.originalImage
         }
         
         let bwAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
@@ -57,11 +57,11 @@ class HomeVC: UIViewController {
             })
         }
         
-        let blurAction = UIAlertAction(title: "Blur", style: .default) { (action) in
-            Filters.blur(image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
+//        let blurAction = UIAlertAction(title: "Blur", style: .default) { (action) in
+//            Filters.blur(image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
         
         actionSheet.addAction(bwAction)
         actionSheet.addAction(vintageAction)
@@ -69,7 +69,7 @@ class HomeVC: UIViewController {
         actionSheet.addAction(fadeAction)
         actionSheet.addAction(instantAction)
         actionSheet.addAction(resetAction)
-        actionSheet.addAction(blurAction)
+        //actionSheet.addAction(blurAction)
         
         self.present(actionSheet, animated: true, completion: nil)
     }
@@ -81,16 +81,16 @@ class HomeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        postButtonBottomConstraint.constant = 100
-        filterButtonTopConstraint.constant = 100
-        self.view.layoutIfNeeded()
-        
-        postButtonBottomConstraint.constant = 8
-        filterButtonTopConstraint.constant = 8
-        
-        UIView.animate(withDuration: 1.0) {
-            self.view.layoutIfNeeded()
-        }
+//        postButtonBottomConstraint.constant = 100
+//        filterButtonTopConstraint.constant = 100
+//        self.view.layoutIfNeeded()
+//        
+//        postButtonBottomConstraint.constant = 8
+//        filterButtonTopConstraint.constant = 8
+//        
+//        UIView.animate(withDuration: 1.0) {
+//            self.view.layoutIfNeeded()
+//        }
         
 //        var blurredBackgroundImage = superView.image
 //            blurredBackgroundImage = Filters.originalImage
@@ -170,7 +170,7 @@ extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView.image = editedImage
-            Filters.originalImage = editedImage
+            Filters.shared.originalImage = editedImage
         }
         self.dismiss(animated: true, completion: nil)
     }

@@ -13,7 +13,9 @@ typealias FilterCompletion = (UIImage?) -> ()
 
 class Filters {
     
-    static var originalImage = UIImage() //use to hold onto original(for undo/reset)
+    static let shared = Filters()
+    
+    var originalImage = UIImage() //use to hold onto original(for undo/reset)
     
     private class func filter(name: String, image: UIImage, completion: @escaping FilterCompletion) { //
         OperationQueue().addOperation {
@@ -57,7 +59,7 @@ class Filters {
         self.filter(name: "CIPhotoEffectInstant", image: image, completion: completion)
     }
     
-    class func blur(image: UIImage, completion: @escaping FilterCompletion) {
-        self.filter(name: "CIGaussianBlur", image: image, completion: completion)
-    }
+//    class func blur(image: UIImage, completion: @escaping FilterCompletion) {
+//        self.filter(name: "CIGaussianBlur", image: image, completion: completion)
+//    }
 }

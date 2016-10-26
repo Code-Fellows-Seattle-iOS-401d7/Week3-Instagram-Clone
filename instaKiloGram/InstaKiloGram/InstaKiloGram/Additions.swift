@@ -10,7 +10,7 @@ import UIKit
 
 
 extension UIImage {
-    class func resize(image: UIImage, size: CGSize) -> UIImage {
+    class func resize(image: UIImage, size: CGSize) -> UIImage? {
         
         UIGraphicsBeginImageContext(size)
         
@@ -20,7 +20,7 @@ extension UIImage {
         
         UIGraphicsEndImageContext()
         
-        return resizedImage!
+        return resizedImage
     }
 }
 
