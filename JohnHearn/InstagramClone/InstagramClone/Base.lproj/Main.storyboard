@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bhw-HE-gRM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -33,20 +33,36 @@
                                     <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zII-sS-JSD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1o2-Tz-7oM">
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Filter">
+                                    <color key="titleColor" red="1" green="0.15686782023634582" blue="0.11863020658896783" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2jk-U2-lTV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1o2-Tz-7oM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="09h-N7-PMX"/>
                             <constraint firstAttribute="trailing" secondItem="GZL-CC-nGr" secondAttribute="trailing" constant="16" id="OYK-8O-cQ9"/>
-                            <constraint firstItem="rYh-hn-thm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="W0W-Fy-Ftg"/>
-                            <constraint firstItem="rYh-hn-thm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="WH2-UI-jzd"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="W0W-Fy-Ftg"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="WH2-UI-jzd"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="auo-c7-yJ9"/>
+                            <constraint firstAttribute="trailing" secondItem="1o2-Tz-7oM" secondAttribute="trailing" constant="16" id="gi4-bf-WqU"/>
                             <constraint firstItem="GZL-CC-nGr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="kP1-cA-sQq"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="GZL-CC-nGr" secondAttribute="bottom" constant="8" id="pZI-4a-SH1"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rqI-Xp-54I"/>
+                            <constraint firstItem="1o2-Tz-7oM" firstAttribute="top" secondItem="rYh-hn-thm" secondAttribute="bottom" constant="8" id="ss2-1d-IXP"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="fpX-xi-Kaz"/>
                     <connections>
+                        <outlet property="filterButtonTopConstraingt" destination="ss2-1d-IXP" id="MIM-zi-efZ"/>
                         <outlet property="imagePickerView" destination="rYh-hn-thm" id="5Sm-AG-mkd"/>
+                        <outlet property="postButtonBottomConstraint" destination="pZI-4a-SH1" id="7fS-gB-YOj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,7 +72,44 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="126" y="143"/>
+            <point key="canvasLocation" x="743" y="3"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6qJ-U6-myG">
+            <objects>
+                <viewController id="j0e-E4-bd9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="acT-j3-iwu"/>
+                        <viewControllerLayoutGuide type="bottom" id="ufs-oE-I6d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9fD-u3-hlG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" systemItem="recents" id="a6J-Mx-7dX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5G-rs-bSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="753" y="668"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RYk-EU-LEF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bhw-HE-gRM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="f6s-qJ-yfh">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vyC-n8-UnK"/>
+                        <segue destination="j0e-E4-bd9" kind="relationship" relationship="viewControllers" id="wlR-qL-88n"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TRH-hh-KCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-412" y="3"/>
         </scene>
     </scenes>
 </document>

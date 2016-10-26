@@ -11,32 +11,52 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var imagePickerView: UIImageView!
 
+    @IBOutlet weak var filterButtonTopConstraingt: NSLayoutConstraint!
+    @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
+    
+
     var imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         presentImagePicker(sourceType: .photoLibrary)
+
+        // We move these so they animates the first time viewDidAppear()
+        postButtonBottomConstraint.constant = 100
+        filterButtonTopConstraingt.constant = 100
+        self.view.layoutIfNeeded()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        postButtonBottomConstraint.constant = 8
+        filterButtonTopConstraingt.constant = 8
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
 
     }
 
     func presentImagePicker(sourceType: UIImagePickerControllerSourceType) {
-
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
         self.imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
-
     }
 
     func presentActionSheet() {
-        let actionSheet = UIAlertController(title: "Source", message: "Please Select Source Type:", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Source",
+                                            message: "Please Select Source Type:",
+                                            preferredStyle: .actionSheet)
 
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+        let cameraAction = UIAlertAction(title: "Camera",
+                                         style: .default) { (action) in
             self.presentImagePicker(sourceType: .camera)
         }
 
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+        let photoLibraryAction = UIAlertAction(title: "Photo Library",
+                                               style: .default) { (action) in
             self.presentImagePicker(sourceType: .photoLibrary)
         }
 
@@ -74,6 +94,41 @@ class HomeViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func filterButtonPressed(_ sender: AnyObject) {
+
+        typealias FilterFunction = ( _:UIImage, _: @escaping (UIImage?)->() )->()
+
+        guard let image = self.imagePickerView.image else { return }  // do nothing if we don't have an image yet
+
+        func filterActionMaker(_ title: String, _ filter: @escaping FilterFunction ) -> UIAlertAction?{
+            let filterAction = UIAlertAction(title: title, style: .default) { (action) in
+                filter(image, { (filteredImage) in
+                    self.imagePickerView.image = filteredImage
+                })
+            }
+            return filterAction
+        }
+
+        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+
+        let vintageAction  = filterActionMaker( "Vintage", Filters.vintage )
+        let bwAction       = filterActionMaker( "Black & White", Filters.blackAndWhite )
+        let chromeAction   = filterActionMaker( "Chrome", Filters.chrome )
+        let polaroidAction = filterActionMaker( "Polaroid", Filters.polaroid )
+        let coolAction     = filterActionMaker( "Cool", Filters.cool )
+        let cancelAction   = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        actionSheet.addAction(vintageAction!)
+        actionSheet.addAction(bwAction!)
+        actionSheet.addAction(chromeAction!)
+        actionSheet.addAction(polaroidAction!)
+        actionSheet.addAction(coolAction!)
+        actionSheet.addAction(cancelAction)
+
+        self.present(actionSheet, animated: true, completion: nil)
+
+    }
 
     func image(_ image: UIImage, didFinishSaving error: NSError?, context: UnsafeRawPointer){
         if error == nil{
@@ -102,10 +157,14 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         if self.imagePicker.allowsEditing {
             if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
                 self.imagePickerView.image = editedImage
+                //Filters.originalImage = editedImage
+                Filters.imageHistory.append(editedImage)
             }
         } else {
             if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
                 self.imagePickerView.image = originalImage
+                //Filters.originalImage = originalImage
+                Filters.imageHistory.append(originalImage)
 
             }
         }
