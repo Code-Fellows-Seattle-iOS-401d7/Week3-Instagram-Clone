@@ -11,10 +11,12 @@ func odds<T>(_ array: [T]) -> [T] {
 odds(array) == ["b", "d", "f"]
 
 
-//extension Array {
-//    static func odds<T>()->[T]{
-//        return self.enumerated()
-//                   .filter({ $0.0 % 2 != 0 })
-//                   .map({ $0.1 })
-//    }
-//}
+extension Array {
+    func odds()->Array{
+        return self.enumerated()
+                   .filter({ $0.0 % 2 != 0 })
+                   .map({ $0.1 })
+    }
+}
+
+array.odds()
