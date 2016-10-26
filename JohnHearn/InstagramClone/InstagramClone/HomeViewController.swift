@@ -115,11 +115,15 @@ class HomeViewController: UIViewController {
 
         let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
 
+        // It would be better if addActionFilter was an extension on UIAlertController,
+        // but then I have to pass in the imagePickerView as a parameter,
+        // which doesn't seem much cleaner. 
         addFilterAction( "Vintage", Filters.vintage, actionSheet )
         addFilterAction( "Black & White", Filters.blackAndWhite, actionSheet )
         addFilterAction( "Chrome", Filters.chrome, actionSheet)
         addFilterAction( "Polaroid", Filters.polaroid, actionSheet )
         addFilterAction( "Cool", Filters.cool, actionSheet )
+
 
         let cancelAction   = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         actionSheet.addAction(cancelAction)
