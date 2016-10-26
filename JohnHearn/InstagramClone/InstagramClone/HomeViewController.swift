@@ -99,33 +99,28 @@ class HomeViewController: UIViewController {
     
     @IBAction func filterButtonPressed(_ sender: AnyObject) {
 
-        typealias FilterFunction = ( _:UIImage, _: @escaping (UIImage?)->() )->()
-
         guard let image = self.imagePickerView.image else { return }  // do nothing if we don't have an image yet
 
-        func filterActionMaker(_ title: String, _ filter: @escaping FilterFunction ) -> UIAlertAction?{
-            let filterAction = UIAlertAction(title: title, style: .default) { (action) in
+        typealias FilterFunction = ( _:UIImage, _: @escaping (UIImage?)->() )->()
+
+        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+
+        func filterActionMaker(_ title: String, _ filter: @escaping FilterFunction ) {
+                let filterAction = UIAlertAction(title: title, style: .default) { (action) in
                 filter(image, { (filteredImage) in
                     self.imagePickerView.image = filteredImage
                 })
             }
-            return filterAction
+            actionSheet.addAction(filterAction)
         }
 
-        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+        filterActionMaker( "Vintage", Filters.vintage )
+        filterActionMaker( "Black & White", Filters.blackAndWhite )
+        filterActionMaker( "Chrome", Filters.chrome )
+        filterActionMaker( "Polaroid", Filters.polaroid )
+        filterActionMaker( "Cool", Filters.cool )
 
-        let vintageAction  = filterActionMaker( "Vintage", Filters.vintage )
-        let bwAction       = filterActionMaker( "Black & White", Filters.blackAndWhite )
-        let chromeAction   = filterActionMaker( "Chrome", Filters.chrome )
-        let polaroidAction = filterActionMaker( "Polaroid", Filters.polaroid )
-        let coolAction     = filterActionMaker( "Cool", Filters.cool )
         let cancelAction   = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-        actionSheet.addAction(vintageAction!)
-        actionSheet.addAction(bwAction!)
-        actionSheet.addAction(chromeAction!)
-        actionSheet.addAction(polaroidAction!)
-        actionSheet.addAction(coolAction!)
         actionSheet.addAction(cancelAction)
 
         self.present(actionSheet, animated: true, completion: nil)
