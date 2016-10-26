@@ -28,7 +28,8 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZL-CC-nGr">
                                 <color key="backgroundColor" red="1" green="0.93832336319825582" blue="0.43288624956591659" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="POST"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zII-sS-JSD"/>
                                 </connections>
@@ -43,6 +44,16 @@
                                     <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2jk-U2-lTV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9H-dG-XMb">
+                                <color key="backgroundColor" red="0.98386371073298429" green="0.15433655571232593" blue="0.11671595525964241" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Undo Filter">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="undoFilterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iI1-qs-iex"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -53,14 +64,17 @@
                             <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="auo-c7-yJ9"/>
                             <constraint firstAttribute="trailing" secondItem="1o2-Tz-7oM" secondAttribute="trailing" constant="16" id="gi4-bf-WqU"/>
                             <constraint firstItem="GZL-CC-nGr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="kP1-cA-sQq"/>
+                            <constraint firstItem="W9H-dG-XMb" firstAttribute="top" secondItem="1o2-Tz-7oM" secondAttribute="bottom" constant="16" id="lJP-9J-VVk"/>
+                            <constraint firstAttribute="trailing" secondItem="W9H-dG-XMb" secondAttribute="trailing" constant="16" id="nsb-im-CXa"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="GZL-CC-nGr" secondAttribute="bottom" constant="8" id="pZI-4a-SH1"/>
                             <constraint firstItem="rYh-hn-thm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rqI-Xp-54I"/>
                             <constraint firstItem="1o2-Tz-7oM" firstAttribute="top" secondItem="rYh-hn-thm" secondAttribute="bottom" constant="8" id="ss2-1d-IXP"/>
+                            <constraint firstItem="W9H-dG-XMb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="wZz-iG-xcN"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="featured" id="fpX-xi-Kaz"/>
                     <connections>
-                        <outlet property="filterButtonTopConstraingt" destination="ss2-1d-IXP" id="MIM-zi-efZ"/>
+                        <outlet property="filterButtonTopConstraint" destination="ss2-1d-IXP" id="uVt-xF-1gE"/>
                         <outlet property="imagePickerView" destination="rYh-hn-thm" id="5Sm-AG-mkd"/>
                         <outlet property="postButtonBottomConstraint" destination="pZI-4a-SH1" id="7fS-gB-YOj"/>
                     </connections>

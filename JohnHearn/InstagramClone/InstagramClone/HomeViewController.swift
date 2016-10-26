@@ -11,9 +11,9 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var imagePickerView: UIImageView!
 
-    @IBOutlet weak var filterButtonTopConstraingt: NSLayoutConstraint!
+    @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
-    
+
 
     var imagePicker = UIImagePickerController()
 
@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
 
         // We move these so they animates the first time viewDidAppear()
         postButtonBottomConstraint.constant = 100
-        filterButtonTopConstraingt.constant = 100
+        filterButtonTopConstraint.constant  = 100
         self.view.layoutIfNeeded()
     }
 
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
 
         postButtonBottomConstraint.constant = 8
-        filterButtonTopConstraingt.constant = 8
+        filterButtonTopConstraint.constant  = 8
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
         }
@@ -140,6 +140,15 @@ class HomeViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+
+
+    @IBAction func undoFilterButtonPressed(_ sender: AnyObject) {
+        if Filters.imageHistory.count > 1 {
+            Filters.imageHistory.removeLast()
+            self.imagePickerView.image = Filters.imageHistory.last
+        }
+    }
+
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
