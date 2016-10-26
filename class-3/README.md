@@ -9,7 +9,8 @@
 * Refactor your Filters class to be a singleton.  
 	* This new singleton should have 1 instance of the **context** that gets reused for each filter.  
 * **Code Challenge:**  
-	* Write a function that computes the list of the first 100 Fibonacci numbers.(This is trickier than it seems).  
+	* Write a function that computes the list of the first 50 Fibonacci numbers.  
+		* If you want a really tough challenge, try 100, youll have issues when you hit the 90's.
 
 ###Reading:  
 * Apple Documentation:  
