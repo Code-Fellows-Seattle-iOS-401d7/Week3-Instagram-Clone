@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="O7T-gF-Efl">
             <objects>
-                <viewController id="sVY-Bg-NfL" sceneMemberID="viewController">
+                <viewController id="sVY-Bg-NfL" customClass="GalleryViewController" customModule="PicFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Olw-7d-l7v"/>
                         <viewControllerLayoutGuide type="bottom" id="5Dr-81-JNJ"/>
@@ -19,13 +19,55 @@
                     <view key="view" contentMode="scaleToFill" id="lSz-Uu-2Ua">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nhv-fx-d2C">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WfZ-dB-fOX">
+                                    <size key="itemSize" width="129" height="121"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="FTI-E2-2Qj" customClass="GalleryCell" customModule="PicFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="121"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="129" height="121"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ZS-mX-YSx"/>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="4ZS-mX-YSx" firstAttribute="leading" secondItem="FTI-E2-2Qj" secondAttribute="leading" id="L8o-20-V3K"/>
+                                            <constraint firstAttribute="trailing" secondItem="4ZS-mX-YSx" secondAttribute="trailing" id="PBC-xD-JCw"/>
+                                            <constraint firstItem="4ZS-mX-YSx" firstAttribute="top" secondItem="FTI-E2-2Qj" secondAttribute="top" id="QJh-2m-kL3"/>
+                                            <constraint firstAttribute="bottom" secondItem="4ZS-mX-YSx" secondAttribute="bottom" id="uhY-sf-aPD"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cellImage" destination="4ZS-mX-YSx" id="kRu-pV-QhS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Nhv-fx-d2C" secondAttribute="trailing" id="3T8-oT-CYt"/>
+                            <constraint firstItem="Nhv-fx-d2C" firstAttribute="top" secondItem="Olw-7d-l7v" secondAttribute="bottom" id="b73-AL-ebA"/>
+                            <constraint firstItem="Nhv-fx-d2C" firstAttribute="leading" secondItem="lSz-Uu-2Ua" secondAttribute="leading" id="n0e-e4-BpG"/>
+                            <constraint firstItem="5Dr-81-JNJ" firstAttribute="top" secondItem="Nhv-fx-d2C" secondAttribute="bottom" id="swc-dI-23r"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="omz-ac-JHr"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Nhv-fx-d2C" id="zba-qf-gWU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm6-Ri-9fL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="878"/>
+            <point key="canvasLocation" x="876" y="877.51124437781118"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">

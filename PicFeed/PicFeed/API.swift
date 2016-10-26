@@ -11,6 +11,7 @@ import CloudKit
 
 
 typealias postCompletion = (Bool) -> ()
+typealias GetPostsCompletion = ([Post]?) -> ()
 
 enum PostError: Error {
     case writingImageToData
@@ -57,7 +58,7 @@ class API {
 
             //CKAsset represents data: files, text file, image, audio
             let asset = CKAsset(fileURL: imageURL)
-            let record = CKRecord(recordType: String(describing: self))
+            let record = CKRecord(recordType: String(describing: Post.identifier())) //
 
             record.setObject(asset, forKey: "image")
 
@@ -65,6 +66,36 @@ class API {
 
         } catch {
             throw PostError.writingDataToDisk
+        }
+    }
+
+    func getPosts(completion: @escaping GetPostsCompletion) {
+        let query = CKQuery(recordType: "Post", predicate: NSPredicate(value: true))
+
+        self.database.perform(query, inZoneWith: nil) { (records, error) in
+            if error == nil {
+                if let records = records { //records are CKRecords and not Posts
+                    var posts = [Post]()
+
+                    for record in records {
+                        guard let asset = record["image"] as? CKAsset else { return }
+                        let path = asset.fileURL.path
+
+                        guard let image = UIImage(contentsOfFile: path) else { return  }
+
+                        posts.append(Post(image: image))
+
+                        OperationQueue.main.addOperation {
+                            completion(posts)
+                        }
+                    }
+                }
+            } else {
+                print(error?.localizedDescription)
+                OperationQueue.main.addOperation {
+                    completion(nil)
+                }
+            }
         }
     }
 }

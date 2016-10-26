@@ -90,19 +90,17 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
 
-
     func filterAction(actionName: String) {
         guard let image = self.imageView.image else { return  }
 
-        if Filters.availableFilters.keys.contains(actionName) {
-            let filter = Filters.availableFilters[actionName]
+        if Filters.shared.availableFilters.keys.contains(actionName) {
+            let filter = Filters.shared.availableFilters[actionName]
             Filters.applyFilter(filterName: filter!, image: image) { (filteredImage) in
                 let tempImg = self.imageView.image
                 self.imageFilterHistory.append(tempImg!)
                 self.imageView.image = filteredImage
                 self.resetButton.setTitle("Undo", for: UIControlState.normal)
             }
-            
         }
     }
 
@@ -110,7 +108,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
 
-        for eachFilter in Filters.availableFilters {
+        for eachFilter in Filters.shared.availableFilters {
             let title = eachFilter.key
             let action = UIAlertAction(title: title, style: .default, handler: { (action) in self.filterAction(actionName: title) })
             actionSheet.addAction(action)
@@ -121,8 +119,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         self.present(actionSheet, animated: true)
     }
-
-
 
     @IBAction func imageTapped(_ sender: AnyObject) {
         presentActionSheet()
@@ -157,7 +153,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imageView.image = editedImage
-            Filters.originalImage = editedImage
+            Filters.shared.originalImage = editedImage
         }
 
         self.dismiss(animated: true, completion: nil)

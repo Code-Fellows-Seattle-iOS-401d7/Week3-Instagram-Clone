@@ -13,9 +13,11 @@ typealias FilterCompletion = (UIImage?) -> ()
 
 class Filters {
 
-    static var originalImage = UIImage()
+    static let shared = Filters()
 
-    static var availableFilters = ["Vintage" : "CIPhotoEffectTransfer", "BlackAndWhite" : "CIPhotoEffectTonal", "Fade" : "CIPhotoEffectFade", "Chromatic" : "CIPhotoEffectChrome", "Process" : "CIPhotoEffectProcess"]
+    var originalImage = UIImage()
+
+    var availableFilters = ["Vintage" : "CIPhotoEffectTransfer", "BlackAndWhite" : "CIPhotoEffectTonal", "Fade" : "CIPhotoEffectFade", "Chromatic" : "CIPhotoEffectChrome", "Process" : "CIPhotoEffectProcess"]
 
     //not thread safe so we're creating our own operation queue
     private class func filter(name: String, image: UIImage, completion: @escaping FilterCompletion) {

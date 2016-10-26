@@ -17,3 +17,9 @@ class Post {
     }
 }
 
+extension Post {
+    class func identifier() -> String {
+        return String(describing: self)
+    }
+}
+
