@@ -14,6 +14,9 @@
 		BDE7BC101DBE780B000E0133 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE7BC0F1DBE780B000E0133 /* CloudKit.framework */; };
 		BDE7BC121DBE7E8C000E0133 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BC111DBE7E8C000E0133 /* API.swift */; };
 		BDE7BC141DBE85D5000E0133 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BC131DBE85D5000E0133 /* HomeViewController.swift */; };
+		BDE7BC411DBFC65E000E0133 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BC401DBFC65E000E0133 /* Post.swift */; };
+		BDE7BC431DBFC671000E0133 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BC421DBFC671000E0133 /* Additions.swift */; };
+		BDE7BC451DBFF62D000E0133 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BC441DBFF62D000E0133 /* Filters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		BDE7BC0F1DBE780B000E0133 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BDE7BC111DBE7E8C000E0133 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BDE7BC131DBE85D5000E0133 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BDE7BC401DBFC65E000E0133 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BDE7BC421DBFC671000E0133 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		BDE7BC441DBFF62D000E0133 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +70,14 @@
 				BDE7BC0D1DBE7809000E0133 /* PicFeed.entitlements */,
 				BDE7BBFB1DBE77FA000E0133 /* AppDelegate.swift */,
 				BDE7BC131DBE85D5000E0133 /* HomeViewController.swift */,
+				BDE7BC401DBFC65E000E0133 /* Post.swift */,
+				BDE7BC421DBFC671000E0133 /* Additions.swift */,
+				BDE7BC111DBE7E8C000E0133 /* API.swift */,
+				BDE7BC441DBFF62D000E0133 /* Filters.swift */,
 				BDE7BBFF1DBE77FA000E0133 /* Main.storyboard */,
 				BDE7BC021DBE77FA000E0133 /* Assets.xcassets */,
 				BDE7BC041DBE77FA000E0133 /* LaunchScreen.storyboard */,
 				BDE7BC071DBE77FA000E0133 /* Info.plist */,
-				BDE7BC111DBE7E8C000E0133 /* API.swift */,
 			);
 			path = PicFeed;
 			sourceTree = "<group>";
@@ -163,8 +172,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDE7BC121DBE7E8C000E0133 /* API.swift in Sources */,
+				BDE7BC431DBFC671000E0133 /* Additions.swift in Sources */,
 				BDE7BBFC1DBE77FA000E0133 /* AppDelegate.swift in Sources */,
+				BDE7BC451DBFF62D000E0133 /* Filters.swift in Sources */,
 				BDE7BC141DBE85D5000E0133 /* HomeViewController.swift in Sources */,
+				BDE7BC411DBFC65E000E0133 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
