@@ -8,27 +8,46 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imagePicker = UIImagePickerController()
     
+    
+    @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presentImagePicker(sourceType: .photoLibrary)
         
+        presentImagePicker(sourceType: .photoLibrary)
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        postButtonBottomConstraint.constant = 100
+        filterButtonTopConstraint.constant = 100
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    
     
     func presentImagePicker(sourceType: UIImagePickerControllerSourceType) {
         
-        
+        self.imagePicker.allowsEditing = true
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
         self.present(imagePicker, animated: true, completion: nil)
         
     }
+    
+    
     
     func presentActionSheet() {
         
@@ -56,23 +75,91 @@ class HomeViewController: UIViewController {
         
         self.present(actionSheet, animated: true, completion: nil)
         
-        imagePicker.allowsEditing = true
 
     }
     
+    
+    
     @IBAction func imageTapped(_ sender: AnyObject) {
         presentActionSheet()
-        
-    
     }
     
+    
+    
+    @IBAction func filterButtonPressed(_ sender: AnyObject) {
+        guard let image = self.imageView.image else { return }
+        
+        let actionSheet = UIAlertController(title: "Filters", message: "Please Pick A Filter", preferredStyle: .actionSheet)
+        
+        let bwAction = UIAlertAction(title: "Black & White", style: .default) {(action) in
+            Filters.blackAndWhite(image: image, completion: {(filteredImage) in
+            self.imageView.image = filteredImage
+            })
+        
+    }
+        let vintageAction = UIAlertAction(title: "Vintage", style: .default) {(action) in
+            Filters.vintage(image: image, completion: {(filteredImage) in
+                self.imageView.image =
+                filteredImage
+            })
+            
+        }
+        
+        let chromeAction = UIAlertAction(title: "Chrome", style: .default) {(action) in Filters.chrome(image: image, completion: {(filteredImage) in
+            self.imageView.image =
+            filteredImage
+        })
+            
+    }
+        let noirAction = UIAlertAction(title: "Noir", style: .default) {(action) in Filters.noir(image: image, completion: {(filteredImage) in
+            self.imageView.image =
+            filteredImage
+        })
+    }
+        let colorInvertAction = UIAlertAction(title: "Color Invert", style: .default) {(action) in Filters.colorInvert(image: image, completion: {(filteredImage) in
+            self.imageView.image =
+            filteredImage
+        })
+    }
+    
+        actionSheet.addAction(bwAction)
+        self.present(actionSheet, animated: true, completion: nil)
     
 }
 
 
+    @IBAction func postButtonPressed(_ sender: AnyObject) {
+        if let image = imageView.image {
+            let newPost = Post(image: image)
+            
+            API.shared.save(post: newPost, completion: { (success) in
+                if success {
+                    print("New Post was saved to CloudKit.")
+                    let selector = #selector(HomeViewController.image(_:didFinishSaving:context:))
+                    
+                    UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+                }
+            })
+        }
+        
+    }
+    
+    
+    
+    
+    
 
-
-extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func image(_ image: UIImage, didFinishSaving error: NSError?, context: UnsafeRawPointer) {
+        if error == nil {
+            let alert = UIAlertController(title: "Saved!", message: "Your image was saved to your photos!", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+    }
     
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -89,15 +176,14 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         
         if let editedImage = info [UIImagePickerControllerEditedImage] as? UIImage {
             self.imageView.image = editedImage
-            
+            Filters.originalImage = editedImage
         }
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
 
-// TODO:
-// create outlet to image view
-// take original image, put it on image view
+
 
 
 
