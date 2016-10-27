@@ -23,8 +23,7 @@ let the94thFib  = "19740274219868223167",
 
 
 func pad(_ s: String,
-         _ length: Int? = 210 ) -> String{
-//         _ length: Int? = the300thFib.characters.count ) -> String{
+         _ length: Int? = the300thFib.characters.count ) -> String{
     var t = s
     while t.characters.count < length! {
         t = "0" + t
@@ -71,7 +70,7 @@ func fib(_ number: Int) -> [String]{
     return output
 }
 
-let fibs = fib(1000)
+let fibs = fib(300)
 
 fibs[94]   == pad(the94thFib)
 fibs[95]   == pad(the95thFib)
@@ -81,7 +80,7 @@ fibs[98]   == pad(the98thFib)
 fibs[99]   == pad(the99thFib)
 fibs[100]  == pad(the100thFib)
 fibs[300]  == pad(the300thFib)
-fibs[1000] == pad(the1000thFib)
+//fibs[1000] == pad(the1000thFib)
 
 
 
