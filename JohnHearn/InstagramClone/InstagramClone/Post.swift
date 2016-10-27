@@ -17,7 +17,7 @@ enum PostError: Error{
 class Post {
     let image: UIImage
 
-    init(image: UIImage) {
+    init(image: UIImage = UIImage()) {
         self.image = image
     }
 }

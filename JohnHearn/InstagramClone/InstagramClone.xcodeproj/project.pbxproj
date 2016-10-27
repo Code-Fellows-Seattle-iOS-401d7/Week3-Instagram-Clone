@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F20D59A71DC28F4800534A98 /* FiltersPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20D59A61DC28F4800534A98 /* FiltersPreviewViewController.swift */; };
 		F25C7DB31DC1295800CDB720 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25C7DB21DC1295700CDB720 /* GalleryViewController.swift */; };
 		F25C7DB51DC12CE500CDB720 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25C7DB41DC12CE500CDB720 /* GalleryCell.swift */; };
 		F2695F7B1DC1540D003789FE /* GalleryCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2695F7A1DC1540D003789FE /* GalleryCollectionViewLayout.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F20D59A61DC28F4800534A98 /* FiltersPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersPreviewViewController.swift; sourceTree = "<group>"; };
 		F25C7DB21DC1295700CDB720 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F25C7DB41DC12CE500CDB720 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F2695F7A1DC1540D003789FE /* GalleryCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		F2FDFB681DBE76DA007E42A5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F20D59A61DC28F4800534A98 /* FiltersPreviewViewController.swift */,
 				F2FDFB541DBE76B0007E42A5 /* AppDelegate.swift */,
 				F2F54B1E1DBE850F00F632B7 /* HomeViewController.swift */,
 				F25C7DB21DC1295700CDB720 /* GalleryViewController.swift */,
@@ -215,6 +218,7 @@
 				F2F54B1D1DBE7E7000F632B7 /* API.swift in Sources */,
 				F25C7DB31DC1295800CDB720 /* GalleryViewController.swift in Sources */,
 				F27D15691DBFC64F00FE147A /* Additons.swift in Sources */,
+				F20D59A71DC28F4800534A98 /* FiltersPreviewViewController.swift in Sources */,
 				F2695F7B1DC1540D003789FE /* GalleryCollectionViewLayout.swift in Sources */,
 				F2FDFB551DBE76B0007E42A5 /* AppDelegate.swift in Sources */,
 				F25C7DB51DC12CE500CDB720 /* GalleryCell.swift in Sources */,

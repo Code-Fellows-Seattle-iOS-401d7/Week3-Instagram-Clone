@@ -96,39 +96,53 @@ class HomeViewController: UIViewController {
             })
         }
     }
-    
-    @IBAction func filterButtonPressed(_ sender: AnyObject) {
 
-        guard let image = self.imagePickerView.image else { return }  // do nothing if we don't have an image yet
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
 
-        typealias FilterFunction = ( _:UIImage, _: @escaping (UIImage?)->() )->()
-        func addFilterAction(_ title: String,
-                             _ filter: @escaping FilterFunction,
-                             _ sheet: UIAlertController) {
-                let filterAction = UIAlertAction(title: title, style: .default) { (action) in
-                filter(image, { (filteredImage) in
-                    self.imagePickerView.image = filteredImage
-                })
+        if segue.identifier == FiltersPreviewViewController.identifier{
+            if let filterController = segue.destination as? FiltersPreviewViewController{
+                filterController.post = Post(image: self.imagePickerView.image!)
+                filterController.delegate = self
             }
-            sheet.addAction(filterAction)
         }
+    }
 
-        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+    @IBAction func filterButtonPressed(_ sender: AnyObject) {
+        guard let _ = self.imagePickerView.image else { return }  // do nothing if we don't have an image yet
 
-        // It would be better if addActionFilter was an extension on UIAlertController,
-        // but then I have to pass in the imagePickerView as a parameter,
-        // which doesn't seem much cleaner. 
-        addFilterAction( "Vintage", Filters.vintage, actionSheet )
-        addFilterAction( "Black & White", Filters.blackAndWhite, actionSheet )
-        addFilterAction( "Chrome", Filters.chrome, actionSheet)
-        addFilterAction( "Polaroid", Filters.polaroid, actionSheet )
-        addFilterAction( "Cool", Filters.cool, actionSheet )
+//        typealias FilterFunction = ( _:UIImage, _: @escaping (UIImage?)->() )->()
+//        func addFilterAction(_ title: String,
+//                             _ filter: @escaping FilterFunction,
+//                             _ sheet: UIAlertController) {
+//                let filterAction = UIAlertAction(title: title, style: .default) { (action) in
+//                filter(image, { (filteredImage) in
+//                    self.imagePickerView.image = filteredImage
+//                })
+//            }
+//            sheet.addAction(filterAction)
+//        }
+//
+//        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+//
+//        // It would be better if addActionFilter was an extension on UIAlertController,
+//        // but then I have to pass in the imagePickerView as a parameter,
+//        // which doesn't seem much cleaner. 
+//        addFilterAction( "Vintage", Filters.vintage, actionSheet )
+//        addFilterAction( "Black & White", Filters.blackAndWhite, actionSheet )
+//        addFilterAction( "Chrome", Filters.chrome, actionSheet)
+//        addFilterAction( "Polaroid", Filters.polaroid, actionSheet )
+//        addFilterAction( "Cool", Filters.cool, actionSheet )
+//
+//
+//        let cancelAction   = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        actionSheet.addAction(cancelAction)
+//
+//        self.present(actionSheet, animated: true, completion: nil)
 
 
-        let cancelAction   = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        actionSheet.addAction(cancelAction)
+        self.performSegue(withIdentifier: FiltersPreviewViewController.identifier, sender: nil)
 
-        self.present(actionSheet, animated: true, completion: nil)
 
     }
 
@@ -158,7 +172,8 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension HomeViewController: UIImagePickerControllerDelegate,
+                              UINavigationControllerDelegate{
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
@@ -186,11 +201,16 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
 
         self.imagePickerControllerDidCancel(imagePicker)
-            
     }
+
 }
 
-
+extension HomeViewController: FiltersPreviewViewControllerDelegate {
+    func filtersPreviewViewController(selected: UIImage) {
+        self.dismiss(animated: true, completion: nil)
+        self.imagePickerView.image = selected
+    }
+}
 
 
 

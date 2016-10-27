@@ -12,6 +12,8 @@ class GalleryCell: UICollectionViewCell {
 
     @IBOutlet weak var cellImageView: UIImageView!
 
+    
+
     var post : Post? {
         didSet{
             self.cellImageView.image = post?.image
@@ -28,7 +30,7 @@ class GalleryCell: UICollectionViewCell {
 }
 
 extension GalleryCell {
-    class func identifier() -> String{
+    static var identifier: String{
         return String(describing: self)
     }
 }

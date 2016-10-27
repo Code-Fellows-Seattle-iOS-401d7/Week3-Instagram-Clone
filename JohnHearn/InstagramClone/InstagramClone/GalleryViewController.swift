@@ -41,6 +41,30 @@ class GalleryViewController: UIViewController {
         }
 
     }
+
+
+    @IBAction func userPinched(_ sender: UIPinchGestureRecognizer) {
+        // Only want this to work on our custom layout
+        guard let layout = self.collectionView.collectionViewLayout
+            as? GalleryCollectionViewLayout else { return }
+
+        switch sender.state {
+        case .ended:   // .changed
+            let columns = sender.velocity > 0 ? layout.columns-1 : layout.columns+1
+            if columns < 1 || columns > 10 { return }
+
+            UIView.animate(withDuration: 0.25, animations: {
+                let newLayout = GalleryCollectionViewLayout(columns: columns)
+                self.collectionView.setCollectionViewLayout(newLayout, animated: true)
+            })
+        default:
+            return
+        }
+        
+    }
+
+
+
 }
 
 
@@ -49,7 +73,7 @@ extension GalleryViewController: UICollectionViewDataSource  {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier(),
+        let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier,
                                                           for: indexPath) as! GalleryCell
         postCell.post = self.allPosts[indexPath.row]
 
