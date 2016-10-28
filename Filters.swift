@@ -43,6 +43,13 @@ typealias FilterCompletion = (UIImage?) -> ()
         }
         
     }
+        
+        
+    class func original(image: UIImage, completion: @escaping FilterCompletion) {
+        completion(Filters.originalImage)
+            
+    }
+        
     
     class func vintage(image: UIImage, completion: @escaping FilterCompletion) {
         self.filter(name: "CIPhotoEffectTransfer", image: image, completion: completion)
@@ -69,7 +76,6 @@ typealias FilterCompletion = (UIImage?) -> ()
         self.filter(name: "CIColorInvert", image: image, completion: completion)
         
     }
-//        private init() {}
     
 }
 

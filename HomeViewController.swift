@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -79,61 +80,83 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     
+    @IBAction func imageLongPressed(_ sender: UILongPressGestureRecognizer) {
+        
+        guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+        
+        composeController.add(imageView.image)
+        self.present(composeController, animated: true, completion: nil)
+        
+    }
     
     @IBAction func imageTapped(_ sender: AnyObject) {
         presentActionSheet()
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == FiltersPreviewController.identifier {
+            if let filterController = segue.destination as? FiltersPreviewController{
+                filterController.post = Post(image: self.imageView.image!)
+                filterController.delegate = self 
+            }
+        }
+    }
+    
     
     @IBAction func filterButtonPressed(_ sender: AnyObject) {
-        guard let image = self.imageView.image else { return }
-        
-        let actionSheet = UIAlertController(title: "Filters", message: "Please Pick A Filter", preferredStyle: .actionSheet)
-        
-        let bwAction = UIAlertAction(title: "Black & White", style: .default) {(action) in
-            Filters.blackAndWhite(image: image, completion: {(filteredImage) in
-            self.imageView.image = filteredImage
-            })
-        
-    }
-        let vintageAction = UIAlertAction(title: "Vintage", style: .default) {(action) in
-            Filters.vintage(image: image, completion: {(filteredImage) in
-                self.imageView.image =
-                filteredImage
-            })
-            
-        }
-        
-        let chromeAction = UIAlertAction(title: "Chrome", style: .default) {(action) in Filters.chrome(image: image, completion: {(filteredImage) in
-            self.imageView.image =
-            filteredImage
-        })
-            
-    }
-        let noirAction = UIAlertAction(title: "Noir", style: .default) {(action) in Filters.noir(image: image, completion: {(filteredImage) in
-            self.imageView.image =
-            filteredImage
-        })
-    }
-        let colorInvertAction = UIAlertAction(title: "Color Invert", style: .default) {(action) in Filters.colorInvert(image: image, completion: {(filteredImage) in
-            self.imageView.image =
-            filteredImage
-        })
-    }
-    
-        let resetAction = UIAlertAction(title: "Reset", style: .destructive) {(action) -> Void in
-            self.imageView.image = Filters.originalImage
-        }
+        guard let _ = self.imageView.image else { return }
         
         
-        actionSheet.addAction(bwAction)
-        actionSheet.addAction(vintageAction)
-        actionSheet.addAction(chromeAction)
-        actionSheet.addAction(noirAction)
-        actionSheet.addAction(colorInvertAction)
-        actionSheet.addAction(resetAction)
-        self.present(actionSheet, animated: true, completion: nil)
+        self.performSegue(withIdentifier: FiltersPreviewController.identifier, sender: nil)
+        
+//        let actionSheet = UIAlertController(title: "Filters", message: "Please Pick A Filter", preferredStyle: .actionSheet)
+//        
+//        let bwAction = UIAlertAction(title: "Black & White", style: .default) {(action) in
+//            Filters.blackAndWhite(image: image, completion: {(filteredImage) in
+//            self.imageView.image = filteredImage
+//            })
+//        
+//    }
+//        let vintageAction = UIAlertAction(title: "Vintage", style: .default) {(action) in
+//            Filters.vintage(image: image, completion: {(filteredImage) in
+//                self.imageView.image =
+//                filteredImage
+//            })
+//            
+//        }
+//        
+//        let chromeAction = UIAlertAction(title: "Chrome", style: .default) {(action) in Filters.chrome(image: image, completion: {(filteredImage) in
+//            self.imageView.image =
+//            filteredImage
+//        })
+//            
+//    }
+//        let noirAction = UIAlertAction(title: "Noir", style: .default) {(action) in Filters.noir(image: image, completion: {(filteredImage) in
+//            self.imageView.image =
+//            filteredImage
+//        })
+//    }
+//        let colorInvertAction = UIAlertAction(title: "Color Invert", style: .default) {(action) in Filters.colorInvert(image: image, completion: {(filteredImage) in
+//            self.imageView.image =
+//            filteredImage
+//        })
+//    }
+//    
+//        let resetAction = UIAlertAction(title: "Reset", style: .destructive) {(action) -> Void in
+//            self.imageView.image = Filters.originalImage
+//        }
+//        
+//        
+//        actionSheet.addAction(bwAction)
+//        actionSheet.addAction(vintageAction)
+//        actionSheet.addAction(chromeAction)
+//        actionSheet.addAction(noirAction)
+//        actionSheet.addAction(colorInvertAction)
+//        actionSheet.addAction(resetAction)
+//        self.present(actionSheet, animated: true, completion: nil)
     
 }
 
@@ -195,11 +218,25 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
 
 
+extension HomeViewController: FiltersPreviewControllerDelegate {
+    
+    func filtersPreviewController(selected: UIImage) {
+        self.dismiss(animated: true, completion: nil)
+        self.imageView.image = selected
+    }
+}
 
 
 
-
-
+extension HomeViewController: GalleryViewControllerDelegate {
+    
+    
+    func galleryToHomeView(selected: UIImage) {
+        self.dismiss(animated: true, completion: nil)
+        self.imageView.image = selected
+    }
+    
+}
 
 
 
