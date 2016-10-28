@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Social
 
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FiltersPreviewControllerDelegate {
 
 
     var imagePicker = UIImagePickerController()
@@ -28,6 +29,16 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         presentImagePicker(sourceType: .photoLibrary)
     }
 
+    @IBAction func imageLongPressed(_ sender: UILongPressGestureRecognizer) {
+        guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+
+        composeController.add(imageView.image)
+
+        //presenting composeController
+        self.present(composeController, animated: true, completion: nil)
+
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
 
@@ -95,7 +106,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         if Filters.shared.availableFilters.keys.contains(actionName) {
             let filter = Filters.shared.availableFilters[actionName]
-            Filters.applyFilter(filterName: filter!, image: image) { (filteredImage) in
+            Filters.shared.applyFilter(filterName: filter!, image: image) { (filteredImage) in
                 let tempImg = self.imageView.image
                 self.imageFilterHistory.append(tempImg!)
                 self.imageView.image = filteredImage
@@ -106,18 +117,39 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBAction func filterButtonPressed(_ sender: AnyObject) {
 
-        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+//        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+//
+//        for eachFilter in Filters.shared.availableFilters {
+//            let title = eachFilter.key
+//            let action = UIAlertAction(title: title, style: .default, handler: { (action) in
+//                self.filterAction(actionName: title)
+//            })
+//            actionSheet.addAction(action)
+//        }
+//
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        actionSheet.addAction(cancelAction)
+//
+//        self.present(actionSheet, animated: true)
 
-        for eachFilter in Filters.shared.availableFilters {
-            let title = eachFilter.key
-            let action = UIAlertAction(title: title, style: .default, handler: { (action) in self.filterAction(actionName: title) })
-            actionSheet.addAction(action)
+//////////
+        guard self.imageView.image != nil else { return  }
+
+        self.performSegue(withIdentifier: FiltersPreviewViewController.identifier(), sender: nil)
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        print(FiltersPreviewViewController.identifier())
+
+        if segue.identifier == FiltersPreviewViewController.identifier() {
+            if let filterController = segue.destination as? FiltersPreviewViewController {
+                filterController.post = Post(image: self.imageView.image!)
+                filterController.delegate = self
+            }
         }
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        actionSheet.addAction(cancelAction)
-
-        self.present(actionSheet, animated: true)
     }
 
     @IBAction func imageTapped(_ sender: AnyObject) {
@@ -152,10 +184,17 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            //let new = UIImage.resize(image: editedImage, size: CGSize(width: 10.0, height: 10.0))
             self.imageView.image = editedImage
             Filters.shared.originalImage = editedImage
         }
 
         self.dismiss(animated: true, completion: nil)
     }
+
+    func filtersPreviewController(selected: UIImage) {
+        self.dismiss(animated: true, completion: nil)
+        self.imageView.image = selected
+    }
+
 }

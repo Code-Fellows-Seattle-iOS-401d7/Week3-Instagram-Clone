@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="129" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ZS-mX-YSx"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ZS-mX-YSx"/>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -53,12 +53,16 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Nhv-fx-d2C" secondAttribute="trailing" id="3T8-oT-CYt"/>
                             <constraint firstItem="Nhv-fx-d2C" firstAttribute="top" secondItem="Olw-7d-l7v" secondAttribute="bottom" id="b73-AL-ebA"/>
                             <constraint firstItem="Nhv-fx-d2C" firstAttribute="leading" secondItem="lSz-Uu-2Ua" secondAttribute="leading" id="n0e-e4-BpG"/>
                             <constraint firstItem="5Dr-81-JNJ" firstAttribute="top" secondItem="Nhv-fx-d2C" secondAttribute="bottom" id="swc-dI-23r"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="CoP-bX-ouI" appends="YES" id="acT-WH-9ho"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="omz-ac-JHr"/>
                     <connections>
@@ -66,6 +70,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm6-Ri-9fL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="CoP-bX-ouI">
+                    <connections>
+                        <action selector="userPinched:" destination="sVY-Bg-NfL" id="g39-EE-Vyy"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="876" y="877.51124437781118"/>
         </scene>
@@ -81,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QP6-cV-k5E">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QP6-cV-k5E">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7I-xX-kr4">
@@ -139,6 +148,7 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="WIg-sv-mpd" appends="YES" id="jmO-Vm-eYw"/>
+                            <outletCollection property="gestureRecognizers" destination="f7p-OY-Lth" appends="YES" id="gJK-bH-Bqu"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="featured" id="1pX-5m-kcZ"/>
@@ -148,6 +158,7 @@
                         <outlet property="postButtonBottomConstraint" destination="4cM-7u-gLr" id="Xos-Vl-9lt"/>
                         <outlet property="resetButton" destination="VHy-ni-9R4" id="bha-RS-Qjl"/>
                         <outlet property="resetButtonTopConstraint" destination="dw5-hW-VqB" id="Hae-17-TLp"/>
+                        <segue destination="Xzp-vg-9yD" kind="presentation" identifier="FiltersPreviewViewController" id="lUQ-c3-dwZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -156,8 +167,73 @@
                         <action selector="imageTapped:" destination="BYZ-38-t0r" id="Z4C-oz-WD7"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="f7p-OY-Lth">
+                    <connections>
+                        <action selector="imageLongPressed:" destination="BYZ-38-t0r" id="wsC-Rk-7XQ"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+        <!--Filters Preview View Controller-->
+        <scene sceneID="5Yj-KP-COT">
+            <objects>
+                <viewController id="Xzp-vg-9yD" customClass="FiltersPreviewViewController" customModule="PicFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u3P-PC-9Es"/>
+                        <viewControllerLayoutGuide type="bottom" id="VqX-Wc-a4e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dQE-Ha-u0W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gwd-FU-97H">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zuQ-09-uXh">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="cLS-ym-CW4" customClass="GalleryCell" customModule="PicFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PbX-1Z-xQa"/>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="PbX-1Z-xQa" firstAttribute="leading" secondItem="cLS-ym-CW4" secondAttribute="leading" id="THN-Np-SKP"/>
+                                            <constraint firstAttribute="trailing" secondItem="PbX-1Z-xQa" secondAttribute="trailing" id="YMx-hp-QVF"/>
+                                            <constraint firstItem="PbX-1Z-xQa" firstAttribute="top" secondItem="cLS-ym-CW4" secondAttribute="top" id="ciY-7p-RJr"/>
+                                            <constraint firstAttribute="bottom" secondItem="PbX-1Z-xQa" secondAttribute="bottom" id="jHJ-U2-4AS"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cellImage" destination="PbX-1Z-xQa" id="YXF-9p-Dwy"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gwd-FU-97H" firstAttribute="leading" secondItem="dQE-Ha-u0W" secondAttribute="leading" id="9oN-Ud-94V"/>
+                            <constraint firstAttribute="trailing" secondItem="Gwd-FU-97H" secondAttribute="trailing" id="EKG-Jk-Kq2"/>
+                            <constraint firstItem="Gwd-FU-97H" firstAttribute="top" secondItem="u3P-PC-9Es" secondAttribute="bottom" id="GpX-Ud-B8G"/>
+                            <constraint firstItem="VqX-Wc-a4e" firstAttribute="top" secondItem="Gwd-FU-97H" secondAttribute="bottom" id="XFk-BU-cjR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Gwd-FU-97H" id="pNy-HO-Uf7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O6G-cv-E4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976.8" y="36.431784107946029"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uDl-3u-HXe">
@@ -165,6 +241,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="a7b-sl-SXl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vQ2-YC-wn6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

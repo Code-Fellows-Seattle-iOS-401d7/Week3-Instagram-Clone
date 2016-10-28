@@ -32,3 +32,13 @@ extension URL {
         return documentsDirectory.appendingPathComponent("image")
     }
 }
+
+protocol knowsIdentifier {
+   // func identifier() -> String
+}
+
+extension knowsIdentifier {
+    func identifier() -> String {
+    return String(describing: self)
+    }
+}

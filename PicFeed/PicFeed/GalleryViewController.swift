@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController, UICollectionViewDataSource {
+class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, knowsIdentifier {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -22,9 +22,8 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
 
         collectionView.dataSource = self
-        collectionView.collectionViewLayout = GalleryCollectionViewFlowLayout(colums: 1)
-
-        // Do any additional setup after loading the view.
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = GalleryCollectionViewFlowLayout(colums: 3)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -35,6 +34,30 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
             }
         }
     }
+
+    //passing sender as UIPinchGestureRecognizer as we need state information
+    @IBAction func userPinched(_ sender: UIPinchGestureRecognizer) {
+        guard let layout = self.collectionView.collectionViewLayout as? GalleryCollectionViewFlowLayout else {return }
+
+        switch sender.state {
+        case .ended:
+            let columns = sender.velocity > 0 ? layout.colums - 1 : layout.colums + 1
+
+            if columns < 1 || columns > 10 {
+                return
+            }
+
+            UIView.animate(withDuration: 0.25, animations: {
+                let newLayout = GalleryCollectionViewFlowLayout(colums: columns)
+                //calls invalidate call under the hood
+                self.collectionView.setCollectionViewLayout(newLayout, animated: true)
+
+            })
+        default:
+            print("Hit default case")
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,21 +71,17 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
         return postCell
     }
 
-
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allPosts.count
     }
-    
 
-    /*
-    // MARK: - Navigation
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tabBarVCs = self.tabBarController?.viewControllers
+        let homeVC = tabBarVCs![0] as! HomeViewController
+        homeVC.imageView.image = allPosts[indexPath.row].image
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        tabBarController?.selectedIndex = 0
     }
-    */
-
 }
+
+

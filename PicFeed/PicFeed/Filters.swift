@@ -20,7 +20,7 @@ class Filters {
     var availableFilters = ["Vintage" : "CIPhotoEffectTransfer", "BlackAndWhite" : "CIPhotoEffectTonal", "Fade" : "CIPhotoEffectFade", "Chromatic" : "CIPhotoEffectChrome", "Process" : "CIPhotoEffectProcess"]
 
     //not thread safe so we're creating our own operation queue
-    private class func filter(name: String, image: UIImage, completion: @escaping FilterCompletion) {
+    private func filter(name: String, image: UIImage, completion: @escaping FilterCompletion) {
         OperationQueue().addOperation {
             guard let filter = CIFilter(name:name) else { fatalError("") }
             let ciImage = CIImage(image:image)
@@ -42,7 +42,11 @@ class Filters {
         }
     }
 
-    class func applyFilter(filterName: String, image: UIImage, completion: @escaping FilterCompletion) {
+    func applyFilter(filterName: String, image: UIImage, completion: @escaping FilterCompletion) {
         self.filter(name: filterName, image: image, completion: completion)
+    }
+
+    func original(filterName: String = "", image: UIImage, completion: @escaping FilterCompletion) {
+        completion(Filters.shared.originalImage)
     }
 }

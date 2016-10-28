@@ -31,7 +31,6 @@ class GalleryCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
         self.itemSize = CGSize(width: itemWidth, height: itemWidth)
 
-        self.scrollDirection = .horizontal
     }
     
     required init?(coder aDecoder: NSCoder) {
