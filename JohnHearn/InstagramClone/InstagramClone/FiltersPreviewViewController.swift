@@ -73,6 +73,7 @@ extension FiltersPreviewViewController: UICollectionViewDataSource, UICollection
 
         let filter = self.filters[indexPath.row]
 
+
         filter(self.post.image) { (filteredImage) in
             if let filteredImage = filteredImage{
                 delegate.filtersPreviewViewController(selected: filteredImage)

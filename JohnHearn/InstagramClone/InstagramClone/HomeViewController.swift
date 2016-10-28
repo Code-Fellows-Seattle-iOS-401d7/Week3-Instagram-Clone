@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -19,6 +20,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let galleryViewController =  self.tabBarController?.viewControllers?[1] as? GalleryViewController{
+
+            galleryViewController.delegate = self
+
+        }
+
         presentImagePicker(sourceType: .photoLibrary)
 
         // We move these so they animates the first time viewDidAppear()
@@ -74,6 +82,14 @@ class HomeViewController: UIViewController {
 
     }
 
+    @IBAction func imageLongPressed(_ sender: UILongPressGestureRecognizer) {
+        guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            else { return }
+
+        composeController.add(imagePickerView.image)
+        self.present(composeController, animated: true, completion: nil)
+
+    }
 
     @IBAction func imageTapped(_ sender: AnyObject) {
         presentActionSheet()
@@ -84,6 +100,9 @@ class HomeViewController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
     }
 
+
+
+    
     @IBAction func postButtonPressed(_ sender: AnyObject) {
         if let image = imagePickerView.image{
             let newPost = Post(image: image)
@@ -97,6 +116,11 @@ class HomeViewController: UIViewController {
         }
     }
 
+
+
+
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -205,10 +229,16 @@ extension HomeViewController: UIImagePickerControllerDelegate,
 
 }
 
-extension HomeViewController: FiltersPreviewViewControllerDelegate {
+extension HomeViewController: FiltersPreviewViewControllerDelegate,
+                              GalleryViewControllerDelegate{
     func filtersPreviewViewController(selected: UIImage) {
         self.dismiss(animated: true, completion: nil)
         self.imagePickerView.image = selected
+    }
+
+    func galleryViewController(selected: UIImage) {
+        self.imagePickerView.image = selected
+        self.tabBarController?.selectedViewController = self
     }
 }
 

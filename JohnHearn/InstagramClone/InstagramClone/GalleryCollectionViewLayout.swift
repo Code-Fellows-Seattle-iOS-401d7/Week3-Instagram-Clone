@@ -33,7 +33,7 @@ class GalleryCollectionViewLayout: UICollectionViewFlowLayout {
         self.minimumLineSpacing = spacing
         self.minimumInteritemSpacing = spacing
 
-        self.scrollDirection = .vertical
+        self.scrollDirection = .horizontal
         self.itemSize = CGSize(width: itemWidth, height: itemHeight)
     }
 

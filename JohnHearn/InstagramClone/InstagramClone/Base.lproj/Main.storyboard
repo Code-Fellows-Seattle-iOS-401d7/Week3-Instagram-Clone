@@ -28,6 +28,7 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="yxo-aQ-mL5" appends="YES" id="aE1-lb-uUp"/>
+                                    <outletCollection property="gestureRecognizers" destination="5z2-fi-tUv" appends="YES" id="JNd-2i-O8N"/>
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZL-CC-nGr">
@@ -102,6 +103,11 @@
                         <action selector="imageTapped:" destination="BYZ-38-t0r" id="p6W-Ym-MqZ"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5z2-fi-tUv">
+                    <connections>
+                        <action selector="imageLongPressed:" destination="BYZ-38-t0r" id="R7g-ce-3nz"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="743" y="3"/>
         </scene>
@@ -195,7 +201,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-nD-mxY"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-nD-mxY">
+                                                    <gestureRecognizers/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
