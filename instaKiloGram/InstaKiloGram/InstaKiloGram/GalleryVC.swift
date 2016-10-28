@@ -12,6 +12,30 @@ class GalleryVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func userPinched(_ sender: UIPinchGestureRecognizer) {
+        guard let layout = self.collectionView.collectionViewLayout as? GalleryCollectionViewFlowLayout else { return }
+        
+        switch sender.state {
+        case .ended:
+            let columns = sender.velocity > 0 ? layout.columns - 1 : layout.columns + 1
+            let maxColumns = allPosts.count > 10 ? 10 : allPosts.count
+            if columns < 1 || columns > maxColumns { return }
+            UIView.animate(withDuration: 0.25, animations: {
+                let newLayout = GalleryCollectionViewFlowLayout(columns: columns)
+                self.collectionView.setCollectionViewLayout(newLayout, animated: true)
+            })
+//        case .changed:
+//            
+        default:
+            return
+        }
+    }
+    
+    @IBAction func imageLongPressed(_ sender: UILongPressGestureRecognizer) {
+        //self.performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+    }
+    
+    
     var allPosts = [Post]() { // fetch all posts and display on collection view
         didSet {
             collectionView.reloadData()

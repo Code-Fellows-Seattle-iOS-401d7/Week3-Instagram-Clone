@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class HomeVC: UIViewController {
     
@@ -18,60 +19,30 @@ class HomeVC: UIViewController {
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageView: UIImageView!
     
+    
+    @IBAction func imageLongPressed(_ sender: UILongPressGestureRecognizer) {
+        guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+        
+        composeController.add(imageView.image)
+        
+        self.present(composeController, animated: true, completion: nil)
+    }
+    
     @IBAction func filterButtonPressed(_ sender: AnyObject) {
-        guard let image = self.imageView.image else { return } // if no image yet, button won't do anything(fail silently)
+        guard self.imageView.image != nil else { return } // if no image yet, button won't do anything(fail silently)
+        self.performSegue(withIdentifier: FiltersPreviewController.identifier, sender: nil)
         
-        let actionSheet = UIAlertController(title: "Filters", message: "Choose as filter", preferredStyle: .actionSheet)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         
-        let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
-            self.imageView.image = Filters.shared.originalImage
+        if segue.identifier == FiltersPreviewController.identifier {
+            if let filterController = segue.destination as? FiltersPreviewController {
+                filterController.post = Post(image: self.imageView.image!)
+                filterController.delegate = self
+            }
         }
-        
-        let bwAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
-            Filters.blackAndWhite(image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
-            Filters.vintage(image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let chromeAction = UIAlertAction(title: "Chrome", style: .default) { (action) in
-            Filters.chrome(image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let fadeAction = UIAlertAction(title: "Fade", style: .default) { (action) in
-            Filters.fade(image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let instantAction = UIAlertAction(title: "Instant", style: .default) { (action) in
-            Filters.instant(image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-//        let blurAction = UIAlertAction(title: "Blur", style: .default) { (action) in
-//            Filters.blur(image: image, completion: { (filteredImage) in
-//                self.imageView.image = filteredImage
-//            })
-//        }
-        
-        actionSheet.addAction(bwAction)
-        actionSheet.addAction(vintageAction)
-        actionSheet.addAction(chromeAction)
-        actionSheet.addAction(fadeAction)
-        actionSheet.addAction(instantAction)
-        actionSheet.addAction(resetAction)
-        //actionSheet.addAction(blurAction)
-        
-        self.present(actionSheet, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -148,7 +119,7 @@ class HomeVC: UIViewController {
             })
         }
     }
-        
+    
     func image(_ image: UIImage, didFinishSaving error: NSError?, context: UnsafeRawPointer) {
         if error == nil {
             let alert = UIAlertController(title: "Saved!", message: "Your image was saved to your photos!", preferredStyle: .alert)
@@ -170,8 +141,77 @@ extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView.image = editedImage
-            Filters.shared.originalImage = editedImage
+            Filters.originalImage = editedImage
         }
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+extension HomeVC: FiltersPreviewControllerDelegate {
+    func filterPreviewController(selected: UIImage) {
+        self.dismiss(animated: true, completion: nil)
+        self.imageView.image = selected
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//        let actionSheet = UIAlertController(title: "Filters", message: "Choose as filter", preferredStyle: .actionSheet)
+//
+//        let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
+//            self.imageView.image = Filters.shared.originalImage
+//        }
+//
+//        let bwAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
+//            Filters.blackAndWhite(image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//
+//        let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
+//            Filters.vintage(image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//
+//        let chromeAction = UIAlertAction(title: "Chrome", style: .default) { (action) in
+//            Filters.chrome(image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//
+//        let fadeAction = UIAlertAction(title: "Fade", style: .default) { (action) in
+//            Filters.fade(image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//
+//        let instantAction = UIAlertAction(title: "Instant", style: .default) { (action) in
+//            Filters.instant(image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//
+////        let blurAction = UIAlertAction(title: "Blur", style: .default) { (action) in
+////            Filters.blur(image: image, completion: { (filteredImage) in
+////                self.imageView.image = filteredImage
+////            })
+////        }
+//
+//        actionSheet.addAction(bwAction)
+//        actionSheet.addAction(vintageAction)
+//        actionSheet.addAction(chromeAction)
+//        actionSheet.addAction(fadeAction)
+//        actionSheet.addAction(instantAction)
+//        actionSheet.addAction(resetAction)
+//        //actionSheet.addAction(blurAction)
+//
+//        self.present(actionSheet, animated: true, completion: nil)

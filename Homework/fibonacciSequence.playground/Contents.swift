@@ -13,6 +13,6 @@ var next = start + current
 func fibonacci() -> [Int] {
     
     fibArray.append(next)
-    for n in 
+    
     
 }

@@ -13,6 +13,7 @@
 		7C16994D1DBFC5CA00ABAF27 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16994C1DBFC5CA00ABAF27 /* Post.swift */; };
 		7C1699511DBFF5EA00ABAF27 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1699501DBFF5EA00ABAF27 /* Filters.swift */; };
 		7C22EC611DC01D31006D8E1C /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22EC601DC01D31006D8E1C /* Additions.swift */; };
+		7C5A2A231DC28F43005EA56F /* FiltersPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A2A221DC28F43005EA56F /* FiltersPreviewController.swift */; };
 		7CA9F5C01DBE76AF00A67814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9F5BF1DBE76AF00A67814 /* AppDelegate.swift */; };
 		7CA9F5C51DBE76AF00A67814 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA9F5C31DBE76AF00A67814 /* Main.storyboard */; };
 		7CA9F5C71DBE76AF00A67814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA9F5C61DBE76AF00A67814 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		7C16994C1DBFC5CA00ABAF27 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7C1699501DBFF5EA00ABAF27 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		7C22EC601DC01D31006D8E1C /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		7C5A2A221DC28F43005EA56F /* FiltersPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersPreviewController.swift; sourceTree = "<group>"; };
 		7CA9F5BC1DBE76AF00A67814 /* InstaKiloGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaKiloGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA9F5BF1DBE76AF00A67814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CA9F5C41DBE76AF00A67814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		7CA9F5D41DBE777400A67814 /* Controlla */ = {
 			isa = PBXGroup;
 			children = (
+				7C5A2A221DC28F43005EA56F /* FiltersPreviewController.swift */,
 				7C11F0991DC1296E0049AF5B /* GalleryVC.swift */,
 				7CB76FAE1DBE850B00A1ECEA /* HomeVC.swift */,
 			);
@@ -174,7 +177,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Jacob Dobson";
 				TargetAttributes = {
 					7CA9F5BB1DBE76AF00A67814 = {
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C5A2A231DC28F43005EA56F /* FiltersPreviewController.swift in Sources */,
 				7CB76FAF1DBE850B00A1ECEA /* HomeVC.swift in Sources */,
 				7CA9F5C01DBE76AF00A67814 /* AppDelegate.swift in Sources */,
 				7C11F09F1DC154260049AF5B /* GalleryCollectionViewFlowLayout.swift in Sources */,
@@ -280,6 +284,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -330,6 +335,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
