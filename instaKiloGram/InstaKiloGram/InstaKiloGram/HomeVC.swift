@@ -47,6 +47,10 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let galleryViewController =  self.tabBarController?.viewControllers?[1] as? GalleryVC{
+            galleryViewController.delegate = self
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -151,6 +155,13 @@ extension HomeVC: FiltersPreviewControllerDelegate {
     func filterPreviewController(selected: UIImage) {
         self.dismiss(animated: true, completion: nil)
         self.imageView.image = selected
+    }
+}
+
+extension HomeVC: GalleryViewControllerDelegate {
+    func galleryViewController(selected: UIImage) {
+        self.imageView.image = selected
+        self.tabBarController?.selectedViewController = self
     }
 }
 

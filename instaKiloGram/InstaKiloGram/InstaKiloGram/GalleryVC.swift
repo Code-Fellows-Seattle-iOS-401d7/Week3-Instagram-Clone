@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol GalleryViewControllerDelegate : class{
+    func galleryViewController(selected: UIImage)
+}
+
 class GalleryVC: UIViewController {
+    
+    weak var delegate: GalleryViewControllerDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -31,10 +37,6 @@ class GalleryVC: UIViewController {
         }
     }
     
-    @IBAction func imageLongPressed(_ sender: UILongPressGestureRecognizer) {
-        //self.performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
-    }
-    
     
     var allPosts = [Post]() { // fetch all posts and display on collection view
         didSet {
@@ -46,6 +48,7 @@ class GalleryVC: UIViewController {
         super.viewDidLoad()
 
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.collectionViewLayout = GalleryCollectionViewFlowLayout(columns: 3)
     }
     
@@ -74,4 +77,16 @@ extension GalleryVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allPosts.count
     }
+}
+
+extension GalleryVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let delegate = self.delegate else { return }
+        
+        let post = self.allPosts[indexPath.row]
+        
+        delegate.galleryViewController(selected: post.image)
+        }
 }
