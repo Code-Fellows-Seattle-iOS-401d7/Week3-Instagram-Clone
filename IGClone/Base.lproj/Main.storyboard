@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fzn-7W-0Ex">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="IGClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eX4-aQ-kWc">
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fvA-NU-O6v" appends="YES" id="TU5-2B-wJD"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YM-M1-UrD">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Filter">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUR-25-1wd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-3b-PTH">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4To-Ck-q0J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eX4-aQ-kWc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="DGX-eL-IGe"/>
+                            <constraint firstAttribute="trailing" secondItem="4YM-M1-UrD" secondAttribute="trailing" constant="16" id="Dg5-9c-JR0"/>
+                            <constraint firstItem="eX4-aQ-kWc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="GQt-DI-nfI"/>
+                            <constraint firstItem="eX4-aQ-kWc" firstAttribute="top" secondItem="Fex-3b-PTH" secondAttribute="bottom" constant="8" id="I1m-Xu-B4h"/>
+                            <constraint firstItem="4YM-M1-UrD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="If8-Xv-4Kv"/>
+                            <constraint firstItem="Fex-3b-PTH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="J8P-7B-OnN"/>
+                            <constraint firstItem="eX4-aQ-kWc" firstAttribute="top" secondItem="Fex-3b-PTH" secondAttribute="bottom" constant="8" id="LO4-2N-U3t"/>
+                            <constraint firstAttribute="trailing" secondItem="Fex-3b-PTH" secondAttribute="trailing" constant="16" id="aU5-Mg-YuF"/>
+                            <constraint firstItem="eX4-aQ-kWc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="bwk-vd-s9j"/>
+                            <constraint firstItem="Fex-3b-PTH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="cHN-OU-DT1"/>
+                            <constraint firstItem="4YM-M1-UrD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="cK5-EV-fgv"/>
+                            <constraint firstItem="4YM-M1-UrD" firstAttribute="top" secondItem="eX4-aQ-kWc" secondAttribute="bottom" constant="8" id="kcc-84-GxT"/>
+                            <constraint firstAttribute="trailing" secondItem="4YM-M1-UrD" secondAttribute="trailing" constant="16" id="qaX-1b-5fS"/>
+                            <constraint firstItem="eX4-aQ-kWc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rNY-N2-9c5"/>
+                            <constraint firstItem="4YM-M1-UrD" firstAttribute="top" secondItem="eX4-aQ-kWc" secondAttribute="bottom" constant="8" id="ru9-Yy-fa2"/>
+                            <constraint firstItem="Fex-3b-PTH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="uPm-1G-1Jj"/>
+                            <constraint firstItem="eX4-aQ-kWc" firstAttribute="top" secondItem="Fex-3b-PTH" secondAttribute="bottom" constant="8" id="yFF-kF-153"/>
+                            <constraint firstItem="Fex-3b-PTH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="16" id="ytt-Z6-oBT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="gwe-w7-Mv2"/>
+                    <connections>
+                        <outlet property="filterButtonTopConstraint" destination="ru9-Yy-fa2" id="8ad-bY-6CC"/>
+                        <outlet property="imageView" destination="eX4-aQ-kWc" id="o7H-Lb-Llm"/>
+                        <outlet property="postButtonBottomConstraint" destination="I1m-Xu-B4h" id="UgF-mZ-tzs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fvA-NU-O6v">
+                    <connections>
+                        <action selector="imageTapped:" destination="BYZ-38-t0r" id="Oet-wa-317"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="964" y="36.431784107946029"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oca-4L-Y8a">
+            <objects>
+                <viewController id="Ghq-wB-5fu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b3u-dF-pCd"/>
+                        <viewControllerLayoutGuide type="bottom" id="xbQ-L0-3CH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QBE-Jy-YcY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" systemItem="recents" id="dcW-oi-EQu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4hL-Jt-uae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="675"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="viU-An-V2N">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Fzn-7W-0Ex" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Xb7-sD-se5">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Z16-Bg-P95"/>
+                        <segue destination="Ghq-wB-5fu" kind="relationship" relationship="viewControllers" id="egS-Ay-eF2"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vbt-gp-aQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
+        </scene>
+    </scenes>
+</document>
