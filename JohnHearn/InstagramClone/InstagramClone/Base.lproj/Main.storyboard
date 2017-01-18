@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bhw-HE-gRM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-hn-thm">
+                                <color key="backgroundColor" red="0.53022668419999996" green="0.92370523319999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rYh-hn-thm" secondAttribute="height" multiplier="1:1" id="SRH-11-zVb"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yxo-aQ-mL5" appends="YES" id="aE1-lb-uUp"/>
+                                    <outletCollection property="gestureRecognizers" destination="5z2-fi-tUv" appends="YES" id="JNd-2i-O8N"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZL-CC-nGr">
+                                <color key="backgroundColor" red="1" green="0.93832336319825582" blue="0.43288624956591659" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zII-sS-JSD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1o2-Tz-7oM">
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Filter">
+                                    <color key="titleColor" red="1" green="0.15686782023634582" blue="0.11863020658896783" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2jk-U2-lTV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9H-dG-XMb">
+                                <color key="backgroundColor" red="0.98386371073298429" green="0.15433655571232593" blue="0.11671595525964241" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Undo Filter">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="undoFilterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iI1-qs-iex"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-1T-5aC">
+                                <color key="backgroundColor" red="0.21645965249999999" green="0.52981911189999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Save to Library">
+                                    <color key="titleColor" red="1" green="0.93832336319999998" blue="0.43288624959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveToLibraryButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="00F-dZ-As0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1o2-Tz-7oM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="09h-N7-PMX"/>
+                            <constraint firstItem="2Mc-1T-5aC" firstAttribute="top" secondItem="W9H-dG-XMb" secondAttribute="bottom" constant="16" id="ADE-6X-41Q"/>
+                            <constraint firstAttribute="trailing" secondItem="GZL-CC-nGr" secondAttribute="trailing" constant="16" id="OYK-8O-cQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="2Mc-1T-5aC" secondAttribute="trailing" constant="16" id="RvE-cM-BK8"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="W0W-Fy-Ftg"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="auo-c7-yJ9"/>
+                            <constraint firstAttribute="trailing" secondItem="1o2-Tz-7oM" secondAttribute="trailing" constant="16" id="gi4-bf-WqU"/>
+                            <constraint firstItem="GZL-CC-nGr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="kP1-cA-sQq"/>
+                            <constraint firstItem="W9H-dG-XMb" firstAttribute="top" secondItem="1o2-Tz-7oM" secondAttribute="bottom" constant="16" id="lJP-9J-VVk"/>
+                            <constraint firstAttribute="trailing" secondItem="W9H-dG-XMb" secondAttribute="trailing" constant="16" id="nsb-im-CXa"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="top" secondItem="GZL-CC-nGr" secondAttribute="bottom" constant="8" id="pZI-4a-SH1"/>
+                            <constraint firstItem="rYh-hn-thm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rqI-Xp-54I"/>
+                            <constraint firstItem="1o2-Tz-7oM" firstAttribute="top" secondItem="rYh-hn-thm" secondAttribute="bottom" constant="8" id="ss2-1d-IXP"/>
+                            <constraint firstItem="W9H-dG-XMb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="wZz-iG-xcN"/>
+                            <constraint firstItem="2Mc-1T-5aC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="z1I-DS-kqT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="fpX-xi-Kaz"/>
+                    <connections>
+                        <outlet property="filterButtonTopConstraint" destination="ss2-1d-IXP" id="uVt-xF-1gE"/>
+                        <outlet property="imagePickerView" destination="rYh-hn-thm" id="5Sm-AG-mkd"/>
+                        <outlet property="postButtonBottomConstraint" destination="pZI-4a-SH1" id="7fS-gB-YOj"/>
+                        <segue destination="d2c-FA-n9i" kind="presentation" identifier="FiltersPreviewViewController" id="vXB-VA-0rY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yxo-aQ-mL5">
+                    <connections>
+                        <action selector="imageTapped:" destination="BYZ-38-t0r" id="p6W-Ym-MqZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5z2-fi-tUv">
+                    <connections>
+                        <action selector="imageLongPressed:" destination="BYZ-38-t0r" id="R7g-ce-3nz"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="743" y="3"/>
+        </scene>
+        <!--Filters Preview View Controller-->
+        <scene sceneID="Qoy-yf-ewU">
+            <objects>
+                <viewController id="d2c-FA-n9i" customClass="FiltersPreviewViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hy4-rd-oLS"/>
+                        <viewControllerLayoutGuide type="bottom" id="D61-sy-o0a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2EV-tw-9vZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-Ky-ArS">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DLB-p1-465">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="BKz-cu-UY8" customClass="GalleryCell" customModule="InstagramClone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2G-SZ-jdt"/>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="c2G-SZ-jdt" firstAttribute="leading" secondItem="BKz-cu-UY8" secondAttribute="leading" id="8IV-Iq-yaw"/>
+                                            <constraint firstItem="c2G-SZ-jdt" firstAttribute="top" secondItem="BKz-cu-UY8" secondAttribute="top" id="LW4-KF-poz"/>
+                                            <constraint firstAttribute="bottom" secondItem="c2G-SZ-jdt" secondAttribute="bottom" id="fBc-co-J1U"/>
+                                            <constraint firstAttribute="trailing" secondItem="c2G-SZ-jdt" secondAttribute="trailing" id="zeC-Lj-PyE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="c2G-SZ-jdt" id="dRm-qn-Znk"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cf0-Ky-ArS" firstAttribute="top" secondItem="hy4-rd-oLS" secondAttribute="bottom" id="3pC-sW-WOM"/>
+                            <constraint firstAttribute="trailing" secondItem="cf0-Ky-ArS" secondAttribute="trailing" id="cW6-PH-AWa"/>
+                            <constraint firstItem="cf0-Ky-ArS" firstAttribute="leading" secondItem="2EV-tw-9vZ" secondAttribute="leading" id="f4V-RS-jeW"/>
+                            <constraint firstItem="D61-sy-o0a" firstAttribute="top" secondItem="cf0-Ky-ArS" secondAttribute="bottom" id="mue-UM-22R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="cf0-Ky-ArS" id="JhG-Fi-ccA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uML-kG-D9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="1.3493253373313345"/>
+        </scene>
+        <!--Gallery View Controller-->
+        <scene sceneID="6qJ-U6-myG">
+            <objects>
+                <viewController id="j0e-E4-bd9" customClass="GalleryViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="acT-j3-iwu"/>
+                        <viewControllerLayoutGuide type="bottom" id="ufs-oE-I6d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9fD-u3-hlG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wSd-d5-lae">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fYi-1p-Jk9">
+                                    <size key="itemSize" width="90" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="v6i-Pw-3fI" customClass="GalleryCell" customModule="InstagramClone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-nD-mxY">
+                                                    <gestureRecognizers/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hgb-nD-mxY" secondAttribute="trailing" id="ADw-D9-tIU"/>
+                                            <constraint firstAttribute="bottom" secondItem="hgb-nD-mxY" secondAttribute="bottom" id="N39-ZQ-dYh"/>
+                                            <constraint firstItem="hgb-nD-mxY" firstAttribute="top" secondItem="v6i-Pw-3fI" secondAttribute="top" id="h5e-Ut-VtR"/>
+                                            <constraint firstItem="hgb-nD-mxY" firstAttribute="leading" secondItem="v6i-Pw-3fI" secondAttribute="leading" id="rYV-op-UMv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="hgb-nD-mxY" id="MUQ-XS-oPr"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="ufs-oE-I6d" firstAttribute="top" secondItem="wSd-d5-lae" secondAttribute="bottom" id="1Eo-8O-Fny"/>
+                            <constraint firstItem="wSd-d5-lae" firstAttribute="leading" secondItem="9fD-u3-hlG" secondAttribute="leading" id="3we-i7-iL9"/>
+                            <constraint firstAttribute="trailing" secondItem="wSd-d5-lae" secondAttribute="trailing" id="CxD-RY-rmo"/>
+                            <constraint firstItem="wSd-d5-lae" firstAttribute="top" secondItem="acT-j3-iwu" secondAttribute="bottom" id="fof-uv-8FX"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="sve-rb-XP1" appends="YES" id="smd-W8-er6"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" systemItem="recents" id="a6J-Mx-7dX"/>
+                    <connections>
+                        <outlet property="collectionView" destination="wSd-d5-lae" id="gUb-VL-dn0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5G-rs-bSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="sve-rb-XP1">
+                    <connections>
+                        <action selector="userPinched:" destination="j0e-E4-bd9" id="SKe-1d-y0T"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="752.79999999999995" y="667.91604197901052"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RYk-EU-LEF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bhw-HE-gRM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="f6s-qJ-yfh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vyC-n8-UnK"/>
+                        <segue destination="j0e-E4-bd9" kind="relationship" relationship="viewControllers" id="wlR-qL-88n"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TRH-hh-KCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-412" y="3"/>
+        </scene>
+    </scenes>
+</document>
